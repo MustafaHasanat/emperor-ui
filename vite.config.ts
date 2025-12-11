@@ -1,7 +1,50 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  server: {
+    port: 3000,
+  },
+  plugins: [
+    react(),
+    tailwindcss(),
+    dts({
+      include: ["src/**/*.ts", "src/**/*.tsx"],
+      exclude: ["src/**/*.test.ts", "src/**/*.test.tsx"],
+      rollupTypes: false,
+      tsconfigPath: "./tsconfig.app.json",
+    }),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "@utils": path.resolve(__dirname, "./src/utils"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@types": path.resolve(__dirname, "./src/types"),
+      "@providers": path.resolve(__dirname, "./src/providers"),
+      "@constants": path.resolve(__dirname, "./src/constants"),
+      "@hooks": path.resolve(__dirname, "./src/hooks"),
+      "@context": path.resolve(__dirname, "./src/context"),
+      "@examples": path.resolve(__dirname, "./src/examples"),
+    },
+  },
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, "./src/components/index.ts"),
+      name: "EmperorUI",
+      fileName: "emperor-ui",
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
+  },
+});
