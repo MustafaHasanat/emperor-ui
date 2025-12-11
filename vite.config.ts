@@ -20,7 +20,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
       "@utils": path.resolve(__dirname, "./src/utils"),
       "@components": path.resolve(__dirname, "./src/components"),
       "@types": path.resolve(__dirname, "./src/types"),
@@ -33,7 +32,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "./src/components/index.ts"),
+      entry: path.resolve(__dirname, "./src/index.ts"),
       name: "EmperorUI",
       fileName: "emperor-ui",
     },

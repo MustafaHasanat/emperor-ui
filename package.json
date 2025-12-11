@@ -1,23 +1,53 @@
 {
-  "name": "emperor-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@js-empire/emperor-ui",
+  "description": "They provide the atoms, we provide the empire.",
+  "version": "0.1.0",
+  "author": "JS Empire - Mustafa Alhasanat",
+  "license": "ISC",
   "type": "module",
+  "main": "dist/emperor-ui-umd.cjs",
+  "module": "dist/emperor-ui.js",
+  "keywords": [],
+  "exports": {
+    ".": {
+      "import": "./dist/emperor-ui.js",
+      "require": "./dist/emperor-ui-umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "globalize": "npm run build && npm link",
     "format": "prettier --write .",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MustafaHasanat/emperor-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/MustafaHasanat/emperor-ui/issues"
+  },
+  "homepage": "https://github.com/MustafaHasanat/emperor-ui#readme",
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "prettier": "^3.7.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17",
     "vite-tsconfig-paths": "^5.1.4"
   },
@@ -45,5 +75,8 @@
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
     "vitest": "^4.0.15"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
   }
 }
