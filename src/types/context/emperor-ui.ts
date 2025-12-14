@@ -19,7 +19,7 @@ export type ColorsPalette = {
   warning: string;
   info: string;
   background: string;
-  text: string;
+  foreground: string;
 };
 
 export type EmperorUITheme = {

@@ -1,14 +1,14 @@
 import type { ColorsPalette, EmperorUIConfig } from "@types";
 
 export const defaultColorsPalette: ColorsPalette = {
-  primary: "#1E40AF",
-  secondary: "#F59E0B",
-  background: "#FFFFFF",
-  text: "#111827",
-  danger: "#DC2626",
-  warning: "#D97706",
+  primary: "#006FEE",
+  secondary: "#9353d3",
+  background: "#3f3f46",
+  foreground: "#ECEDEE",
+  success: "#17c964",
+  warning: "#f5a524",
+  danger: "#f31260",
   info: "#3B82F6",
-  success: "#16A34A",
 };
 
 export const defaultEmperorUIConfig: EmperorUIConfig = {

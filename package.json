@@ -1,18 +1,21 @@
 {
   "name": "@js-empire/emperor-ui",
   "description": "They provide the atoms, we provide the empire.",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "author": "JS Empire - Mustafa Alhasanat",
   "license": "ISC",
   "type": "module",
   "main": "dist/emperor-ui-umd.cjs",
   "module": "dist/emperor-ui.js",
+  "types": "dist/index.d.ts",
   "keywords": [],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/emperor-ui.js",
       "require": "./dist/emperor-ui-umd.cjs"
-    }
+    },
+    "./globals.css": "./dist/globals.css"
   },
   "scripts": {
     "dev": "vite",
@@ -44,6 +47,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.560.0",
     "prettier": "^3.7.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -74,6 +78,7 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.0.15"
   },
   "resolutions": {

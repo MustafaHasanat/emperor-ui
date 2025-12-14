@@ -1,8 +1,10 @@
+import "./assets/css/globals.css";
+
 export * from "./components";
+export * from "./constants";
+export * from "./context";
+export * from "./examples";
+export * from "./hooks";
+export * from "./providers";
 export type * from "./types";
 export * from "./utils";
-export * from "./providers";
-export * from "./context";
-export * from "./hooks";
-export * from "./constants";
-export * from "./examples";

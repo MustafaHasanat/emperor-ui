@@ -14,7 +14,7 @@ export default defineConfig({
     dts({
       include: ["src/**/*.ts", "src/**/*.tsx"],
       exclude: ["src/**/*.test.ts", "src/**/*.test.tsx"],
-      rollupTypes: false,
+      rollupTypes: true,
       tsconfigPath: "./tsconfig.app.json",
     }),
   ],
@@ -36,6 +36,7 @@ export default defineConfig({
       name: "EmperorUI",
       fileName: "emperor-ui",
     },
+    cssCodeSplit: false,
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
@@ -43,6 +44,7 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
         },
+        assetFileNames: "globals.css",
       },
     },
   },
