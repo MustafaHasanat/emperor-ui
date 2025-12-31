@@ -20,6 +20,7 @@ export const Scaffold = forwardRef<HTMLDivElement, ScaffoldProps>(
     return (
       <div
         ref={ref}
+        dir={config?.dir}
         data-slot="scaffold"
         className={cn(scaffoldStyles({ className }), className)}
         style={{

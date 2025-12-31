@@ -1,15 +1,16 @@
 import { type ReactNode } from "react";
 
-export type EmperorUIContextState = {
+export type ConfigContextState = {
   config: EmperorUIConfig;
 };
 
-export type EmperorUIProviderProps = {
+export type ConfigProviderProps = {
   children: ReactNode;
-  config: EmperorUIConfig;
+  config?: EmperorUIConfig;
 };
 
 export type ColorMode = "light" | "dark";
+export type AppDirection = "ltr" | "rtl";
 
 export type ColorsPalette = {
   primary: string;
@@ -34,4 +35,5 @@ export type EmperorUILayout = {
 export type EmperorUIConfig = {
   theme?: Partial<EmperorUITheme>;
   layout?: Partial<EmperorUILayout>;
+  dir?: AppDirection;
 };

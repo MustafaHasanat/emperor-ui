@@ -19,4 +19,5 @@ export const defaultEmperorUIConfig: EmperorUIConfig = {
   layout: {
     withScaffold: true,
   },
+  dir: "ltr",
 };

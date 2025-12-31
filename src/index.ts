@@ -1,4 +1,4 @@
-import "./assets/css/globals.css";
+import "./styles/globals.css";
 
 export * from "./components";
 export * from "./constants";

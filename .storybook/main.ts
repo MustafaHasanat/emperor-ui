@@ -4,16 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: [
-    "@chromatic-com/storybook",
-    "@storybook/addon-vitest",
-    "@storybook/addon-a11y",
-    "@storybook/addon-docs",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
-  ],
+  addons: [],
   framework: {
     name: "@storybook/react-vite",
     options: {},
@@ -22,7 +13,7 @@ const config: StorybookConfig = {
     config.plugins?.push(
       /** @see https://github.com/aleclarson/vite-tsconfig-paths */
       tsconfigPaths({
-        projects: [path.resolve(path.dirname(__dirname), "tsconfig.json")],
+        projects: [path.resolve("..", "tsconfig.json")],
       }),
     );
 

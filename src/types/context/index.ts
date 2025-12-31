@@ -1,1 +1,1 @@
-export type * from "./emperor-ui";
+export type * from "./config";

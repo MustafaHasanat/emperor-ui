@@ -19,3 +19,9 @@ export type HeaderProps = SharedComponentProps & {
   variant?: "default" | "compact";
   classNames?: HeaderClassnames;
 };
+
+export type HeaderBrandProps = SharedComponentProps & {};
+
+export type HeaderDropdownProps = SharedComponentProps & {};
+
+export type UserDropdownProps = SharedComponentProps & {};

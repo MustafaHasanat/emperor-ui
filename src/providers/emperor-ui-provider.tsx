@@ -1,48 +1,16 @@
-import type {
-  EmperorUIConfig,
-  EmperorUIContextState,
-  EmperorUIProviderProps,
-} from "@types";
-import { useMemo } from "react";
-import { EmperorUIContext } from "@context";
-import { defaultEmperorUIConfig } from "@constants";
-import { Scaffold } from "@components";
+import { ConfigProviderProps } from "@types";
+import { ConfigProvider } from "@providers";
+import { HeroUIProvider } from "@heroui/react";
+
+type EmperorUIProviderProps = ConfigProviderProps & {};
 
 export function EmperorUIProvider({
   children,
-  config,
+  ...props
 }: EmperorUIProviderProps) {
-  const emperorUIProviderValue: EmperorUIContextState = useMemo(() => {
-    return {
-      config: {
-        layout: {
-          ...defaultEmperorUIConfig?.layout,
-          ...config?.layout,
-        },
-        theme: {
-          ...defaultEmperorUIConfig?.theme,
-          ...config?.theme,
-          colors: {
-            ...defaultEmperorUIConfig?.theme?.colors,
-            ...config?.theme?.colors,
-          },
-        },
-      } as EmperorUIConfig,
-    };
-  }, [config]);
-
-  const withScaffold = config.layout?.withScaffold ?? true;
-
-  if (withScaffold)
-    return (
-      <EmperorUIContext.Provider value={emperorUIProviderValue}>
-        <Scaffold>{children}</Scaffold>
-      </EmperorUIContext.Provider>
-    );
-
   return (
-    <EmperorUIContext.Provider value={emperorUIProviderValue}>
-      {children}
-    </EmperorUIContext.Provider>
+    <ConfigProvider {...props}>
+      <HeroUIProvider>{children}</HeroUIProvider>
+    </ConfigProvider>
   );
 }
