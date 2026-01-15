@@ -20,7 +20,6 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
@@ -33,7 +32,9 @@
       "@context": ["./src/context"],
       "@examples": ["./src/examples"],
       "@providers": ["./src/providers"],
-      "@types": ["./src/types"]
+      "@types": ["./src/types"],
+      "@mocks": ["./src/mocks"],
+      "@enums": ["./src/enums"]
     }
   },
   "include": [

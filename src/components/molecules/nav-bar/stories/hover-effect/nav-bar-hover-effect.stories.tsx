@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { NavBar } from "@components";
 import { getStorybookDecorators } from "@utils";
+import { MOCK_HEADER_ITEMS } from "@mocks";
 
 const meta: Meta<typeof NavBar> = {
   title: "Molecules/NavBar/HoverEffect",
@@ -22,53 +23,30 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const items = [
-  {
-    id: "home",
-    label: "Home",
-    href: "#home",
-  },
-  {
-    id: "about",
-    label: "About",
-    href: "#about",
-  },
-  {
-    id: "contact",
-    label: "Contact",
-    href: "#contact",
-  },
-  {
-    id: "blog",
-    label: "Blog",
-    href: "#blog",
-  },
-];
-
 export const SolidHover: Story = {
   args: {
-    items,
+    items: MOCK_HEADER_ITEMS,
     hoverEffect: "solid",
   },
 };
 
 export const GhostHover: Story = {
   args: {
-    items,
+    items: MOCK_HEADER_ITEMS,
     hoverEffect: "ghost",
   },
 };
 
 export const BorderedHover: Story = {
   args: {
-    items,
+    items: MOCK_HEADER_ITEMS,
     hoverEffect: "bordered",
   },
 };
 
 export const UnderlinedHover: Story = {
   args: {
-    items,
+    items: MOCK_HEADER_ITEMS,
     hoverEffect: "underline",
   },
 };

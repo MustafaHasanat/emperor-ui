@@ -28,6 +28,8 @@ export default defineConfig({
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@context": path.resolve(__dirname, "./src/context"),
       "@examples": path.resolve(__dirname, "./src/examples"),
+      "@mocks": path.resolve(__dirname, "./src/mocks"),
+      "@enums": path.resolve(__dirname, "./src/enums"),
     },
   },
   build: {

@@ -1,27 +1,32 @@
 import { cn } from "@utils";
 import { VariantProps } from "class-variance-authority";
-import { forwardRef, ComponentProps, useState } from "react";
+import { forwardRef, ComponentProps } from "react";
 import type { NavBarProps } from "@types";
 import { useEmperorUI } from "@hooks";
 import {
   navBarClasses,
-  navBarItemClasses,
-  navBarItemStyles,
   navBarMenuClasses,
   navBarMenuStyles,
   navBarStyles,
-} from "./styles/styles";
+} from "./styles";
+import { NavBarItem, SubItemsBox } from "@components";
 
 export const NavBar = forwardRef<
   HTMLDivElement,
   ComponentProps<"nav"> & VariantProps<typeof navBarClasses> & NavBarProps
 >(
   (
-    { className, hoverEffect = "default", variant = "default", ...props },
+    {
+      className,
+      hoverEffect = "default",
+      variant = "default",
+      items = [],
+      subItemsColumns = 3,
+      ...props
+    },
     ref,
   ) => {
     const { config } = useEmperorUI();
-    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
     const primaryColor = config?.theme?.colors?.primary;
     const foregroundColor = config?.theme?.colors?.foreground;
@@ -38,29 +43,22 @@ export const NavBar = forwardRef<
         })}
         {...props}
       >
-        <menu
+        <ul
           className={cn(navBarMenuClasses({ className }))}
           style={navBarMenuStyles({ hoverEffect, variant })}
           data-slot="emperor-nav-bar-menu"
         >
-          {props.items?.map(({ id, label, href }) => (
-            <li
-              key={href}
-              data-slot="emperor-nav-bar-item"
-              style={navBarItemStyles({
-                foregroundColor,
-                primaryColor,
-                hoverEffect,
-                isHovered: hoveredItem === id,
-              })}
-              className={cn(navBarItemClasses({ hoverEffect, variant }))}
-              onMouseEnter={() => setHoveredItem(id)}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              {label}
-            </li>
+          {items?.map((item) => (
+            <NavBarItem
+              key={item.id}
+              item={item}
+              variant={variant}
+              hoverEffect={hoverEffect}
+            />
           ))}
-        </menu>
+        </ul>
+
+        <SubItemsBox subItemsColumns={subItemsColumns} />
       </nav>
     );
   },

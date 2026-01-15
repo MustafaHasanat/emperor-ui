@@ -19,5 +19,10 @@ export const defaultEmperorUIConfig: EmperorUIConfig = {
   layout: {
     withScaffold: true,
   },
-  dir: "ltr",
+  interLocalization: {
+    dir: "ltr",
+    languages: ["en", "ar"],
+    defaultLanguage: "en",
+    isMultiLingual: false,
+  },
 };

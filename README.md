@@ -1,5 +1,7 @@
 # Emperor UI
 
+![Emperor UI Logo](./public/images/emperor-ui-logo.png)
+
 ## Intro
 
 A modular UI library built for React and Nextjs. It depends on HeroUI to implement advanced organisms and pages.

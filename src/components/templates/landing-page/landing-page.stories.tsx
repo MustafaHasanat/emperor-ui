@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Header } from "@components";
+import { LandingPage } from "@components";
 import { getStorybookDecorators } from "@utils";
 
-const meta: Meta<typeof Header> = {
-  title: "Molecules/Header",
-  component: Header,
+const meta: Meta<typeof LandingPage> = {
+  title: "Templates/LandingPage",
+  component: LandingPage,
   parameters: {
     layout: "fullscreen",
   },

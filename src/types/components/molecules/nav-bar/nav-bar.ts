@@ -3,17 +3,19 @@ import type {
   ComponentSize,
   SharedComponentProps,
 } from "@types";
+import type { ElementType } from "react";
 
 export type NavBarClassnames = {
   base?: string;
 };
 
-export type NavBarItem = {
+export type NavigationItem = {
   id: string;
-  label: string;
+  label?: string;
   href?: string;
+  subItems?: NavigationItem[];
   onClick?: () => void;
-  icon?: React.ReactNode;
+  Icon?: ElementType;
 };
 
 export type NavBarHoverEffect =
@@ -39,13 +41,25 @@ export type NavBarItemStylesProps = {
   primaryColor?: string;
   hoverEffect: NavBarHoverEffect;
   isHovered?: boolean;
+  variant?: NavBarVariant;
 };
 
 export type NavBarProps = SharedComponentProps & {
-  items: NavBarItem[];
+  items: NavigationItem[];
   classNames?: NavBarClassnames;
   hoverEffect?: NavBarHoverEffect;
   radius?: ComponentRadius;
   size?: ComponentSize;
   variant?: NavBarVariant;
+  subItemsColumns?: number;
+};
+
+export type NavBarItemProps = {
+  item: NavigationItem;
+  variant: NavBarVariant;
+  hoverEffect: NavBarHoverEffect;
+};
+
+export type SubItemsBoxProps = {
+  subItemsColumns?: number;
 };

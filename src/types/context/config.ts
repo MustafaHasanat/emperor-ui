@@ -32,8 +32,16 @@ export type EmperorUILayout = {
   withScaffold: boolean;
 };
 
+export type EmperorUIInterLocalization = {
+  lang?: string;
+  languages?: string[];
+  defaultLanguage?: string;
+  isMultiLingual?: boolean;
+  dir?: AppDirection;
+};
+
 export type EmperorUIConfig = {
   theme?: Partial<EmperorUITheme>;
   layout?: Partial<EmperorUILayout>;
-  dir?: AppDirection;
+  interLocalization?: Partial<EmperorUIInterLocalization>;
 };

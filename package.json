@@ -1,7 +1,7 @@
 {
   "name": "@js-empire/emperor-ui",
   "description": "They provide the atoms, we provide the empire.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "JS Empire - Mustafa Alhasanat",
   "license": "ISC",
   "type": "module",
@@ -45,16 +45,19 @@
   },
   "dependencies": {
     "@heroui/react": "^2.8.5",
+    "@heroui/theme": "^2.4.25",
     "@storybook/react": "^10.1.8",
     "@tailwindcss/vite": "^4.1.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.560.0",
+    "motion": "^12.26.2",
     "prettier": "^3.7.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwind-merge": "^3.4.0",
+    "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss": "^4.1.17",
     "vite-tsconfig-paths": "^5.1.4"
   },

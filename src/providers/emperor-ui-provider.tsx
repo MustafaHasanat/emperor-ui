@@ -1,5 +1,5 @@
 import { ConfigProviderProps } from "@types";
-import { ConfigProvider } from "@providers";
+import { ConfigProvider, NavigationProvider } from "@providers";
 import { HeroUIProvider } from "@heroui/react";
 
 type EmperorUIProviderProps = ConfigProviderProps & {};
@@ -10,7 +10,9 @@ export function EmperorUIProvider({
 }: EmperorUIProviderProps) {
   return (
     <ConfigProvider {...props}>
-      <HeroUIProvider>{children}</HeroUIProvider>
+      <HeroUIProvider>
+        <NavigationProvider>{children}</NavigationProvider>
+      </HeroUIProvider>
     </ConfigProvider>
   );
 }

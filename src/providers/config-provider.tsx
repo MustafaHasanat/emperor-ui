@@ -27,7 +27,9 @@ export function ConfigProvider({
             ...config?.theme?.colors,
           },
         },
-        dir: config?.dir || defaultEmperorUIConfig?.dir,
+        dir:
+          config?.interLocalization?.dir ||
+          defaultEmperorUIConfig?.interLocalization?.dir,
       } as EmperorUIConfig,
     };
   }, [config]);

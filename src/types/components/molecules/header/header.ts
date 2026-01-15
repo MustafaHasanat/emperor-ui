@@ -15,13 +15,37 @@ export type HeaderActivations = {
   hideSideMenu?: boolean;
 };
 
-export type HeaderProps = SharedComponentProps & {
-  variant?: "default" | "compact";
-  classNames?: HeaderClassnames;
+export type HeaderVariant =
+  | "default"
+  | "floating"
+  | "light"
+  | "segmented-floating";
+
+export type HeaderGlassEffect = {
+  enabled?: boolean;
+  blur?: number;
+  backgroundColor?: string;
+  foregroundColor?: string;
+  opacity?: number;
 };
 
-export type HeaderBrandProps = SharedComponentProps & {};
+export type HeaderProps = SharedComponentProps & {
+  variant?: HeaderVariant;
+  classNames?: HeaderClassnames;
+  glassEffect?: HeaderGlassEffect;
+};
 
 export type HeaderDropdownProps = SharedComponentProps & {};
 
 export type UserDropdownProps = SharedComponentProps & {};
+
+export type HeaderStylesProps = {
+  primaryColor?: string;
+  foregroundColor?: string;
+  variant?: HeaderVariant;
+  glassEffect?: HeaderGlassEffect;
+};
+
+export type SegmentedHeaderContentProps = SharedComponentProps & {
+  glassEffect?: HeaderGlassEffect;
+};

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { NavBar } from "@components";
 import { getStorybookDecorators } from "@utils";
+import { MOCK_HEADER_ITEMS, MOCK_HEADER_ITEMS_WITH_SUB_ITEMS } from "@mocks";
 
 const meta: Meta<typeof NavBar> = {
   title: "Molecules/NavBar",
@@ -22,45 +23,28 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const items = [
-  {
-    id: "home",
-    label: "Home",
-    href: "#home",
-  },
-  {
-    id: "about",
-    label: "About",
-    href: "#about",
-  },
-  {
-    id: "contact",
-    label: "Contact",
-    href: "#contact",
-  },
-  {
-    id: "blog",
-    label: "Blog",
-    href: "#blog",
-  },
-];
-
 export const Default: Story = {
   args: {
-    items,
+    items: MOCK_HEADER_ITEMS,
   },
 };
 
 export const Solid: Story = {
   args: {
-    items,
+    items: MOCK_HEADER_ITEMS,
     variant: "solid",
   },
 };
 
 export const Bordered: Story = {
   args: {
-    items,
+    items: MOCK_HEADER_ITEMS,
     variant: "bordered",
+  },
+};
+
+export const WithSubItems: Story = {
+  args: {
+    items: MOCK_HEADER_ITEMS_WITH_SUB_ITEMS,
   },
 };
