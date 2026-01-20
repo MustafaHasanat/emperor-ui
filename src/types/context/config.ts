@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { HeroUIProviderProps } from "@heroui/react";
 
 export type ConfigContextState = {
   config: EmperorUIConfig;
@@ -32,16 +33,22 @@ export type EmperorUILayout = {
   withScaffold: boolean;
 };
 
+export type EmperorUILang = "en" | "ar";
+
+export type EmperorUILocales = Record<EmperorUILang, Record<string, string>>;
+
 export type EmperorUIInterLocalization = {
-  lang?: string;
-  languages?: string[];
-  defaultLanguage?: string;
+  lang?: EmperorUILang;
+  languages?: EmperorUILang[];
+  defaultLanguage?: EmperorUILang;
   isMultiLingual?: boolean;
   dir?: AppDirection;
+  locales?: EmperorUILocales;
 };
 
 export type EmperorUIConfig = {
   theme?: Partial<EmperorUITheme>;
   layout?: Partial<EmperorUILayout>;
   interLocalization?: Partial<EmperorUIInterLocalization>;
+  toast?: HeroUIProviderProps;
 };

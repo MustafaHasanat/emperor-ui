@@ -13,24 +13,27 @@ export function ConfigProvider({
   config = defaultEmperorUIConfig,
 }: ConfigProviderProps) {
   const emperorUIProviderValue: ConfigContextState = useMemo(() => {
+    const mergedConfig: EmperorUIConfig = {
+      layout: {
+        ...defaultEmperorUIConfig?.layout,
+        ...config?.layout,
+      },
+      theme: {
+        ...defaultEmperorUIConfig?.theme,
+        ...config?.theme,
+        colors: {
+          ...defaultEmperorUIConfig?.theme?.colors,
+          ...config?.theme?.colors,
+        },
+      },
+      interLocalization: {
+        ...defaultEmperorUIConfig?.interLocalization,
+        ...config?.interLocalization,
+      },
+    };
+
     return {
-      config: {
-        layout: {
-          ...defaultEmperorUIConfig?.layout,
-          ...config?.layout,
-        },
-        theme: {
-          ...defaultEmperorUIConfig?.theme,
-          ...config?.theme,
-          colors: {
-            ...defaultEmperorUIConfig?.theme?.colors,
-            ...config?.theme?.colors,
-          },
-        },
-        dir:
-          config?.interLocalization?.dir ||
-          defaultEmperorUIConfig?.interLocalization?.dir,
-      } as EmperorUIConfig,
+      config: mergedConfig,
     };
   }, [config]);
 

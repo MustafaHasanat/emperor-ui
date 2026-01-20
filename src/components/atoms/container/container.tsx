@@ -3,7 +3,7 @@ import { cn } from "@utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
 
-const containerStyles = cva(["flex w-full container p-4"], {
+const containerStyles = cva(["flex w-full container p-4 mx-auto"], {
   variants: {},
   defaultVariants: {},
   compoundVariants: [],

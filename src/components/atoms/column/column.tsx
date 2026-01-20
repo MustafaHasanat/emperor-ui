@@ -3,7 +3,7 @@ import { cn } from "@utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
 
-const columnStyles = cva(["flex flex-col"], {
+const columnStyles = cva(["flex flex-col gap-3"], {
   variants: {},
   defaultVariants: {},
   compoundVariants: [],

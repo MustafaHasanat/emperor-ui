@@ -10,14 +10,7 @@ Each one of them has props to control every aspect pf the component, with enabli
 
 ---
 
-## Organisms
-
-### Header
-
-- Logo placeholder
-- Burger button with a side drawer
-- Nav-bar for navigation
-- User drop-down with actions
+## Components
 
 ### Footer
 
@@ -68,8 +61,6 @@ Each one of them has props to control every aspect pf the component, with enabli
 ---
 
 ## Documentation Page
-
-### Sidebar
 
 - Introducing the tool and its usage
 - Installation guide

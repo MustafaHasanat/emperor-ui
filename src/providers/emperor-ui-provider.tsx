@@ -1,6 +1,7 @@
 import { ConfigProviderProps } from "@types";
 import { ConfigProvider, NavigationProvider } from "@providers";
-import { HeroUIProvider } from "@heroui/react";
+import { HeroUIProvider, ToastProvider } from "@heroui/react";
+import { Fragment } from "react";
 
 type EmperorUIProviderProps = ConfigProviderProps & {};
 
@@ -11,7 +12,12 @@ export function EmperorUIProvider({
   return (
     <ConfigProvider {...props}>
       <HeroUIProvider>
-        <NavigationProvider>{children}</NavigationProvider>
+        <NavigationProvider>
+          <Fragment>
+            <ToastProvider {...props?.config?.toast} />
+            {children}
+          </Fragment>
+        </NavigationProvider>
       </HeroUIProvider>
     </ConfigProvider>
   );
