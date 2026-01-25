@@ -1,4 +1,5 @@
 import type { SharedComponentProps } from "@/types";
+import { ModalProps } from "@heroui/react";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type UploaderProps = SharedComponentProps &
@@ -58,11 +59,6 @@ export type UseUploadFileReturn = {
 };
 
 export type UploaderContextState = {
-  isOpen?: boolean;
-  onClose?: () => void;
-  onOpen?: () => void;
-  onOpenChange?: (isOpen: boolean) => void;
-
   selectedFile?: FileObject | null;
   setSelectedFile?: (file: FileObject | null) => void;
 
@@ -84,11 +80,8 @@ export type UploaderContextState = {
   onInputChange: SharedOnInputChangeType;
   handleClearFile: (fileName?: string) => void;
 
-  modal?: {
-    isOpen?: boolean;
+  modal?: Omit<ModalProps, "children"> & {
     onOpen?: () => void;
-    onClose?: () => void;
-    onOpenChange?: (isOpen: boolean) => void;
   };
   classNames?: {
     label?: string;

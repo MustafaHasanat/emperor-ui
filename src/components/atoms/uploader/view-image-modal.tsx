@@ -5,7 +5,7 @@ import { useEmperorUI, useUploaderContext } from "@/hooks";
 
 export function ViewImageModal() {
   const { config } = useEmperorUI();
-  const { isOpen, onClose, onOpenChange, selectedFile } = useUploaderContext();
+  const { modal, selectedFile } = useUploaderContext();
 
   const lang = config?.interLocalization?.lang || "en";
 
@@ -17,11 +17,12 @@ export function ViewImageModal() {
   return (
     <Modal
       placement="center"
-      isOpen={isOpen}
+      isOpen={modal?.isOpen}
       dir={lang === "ar" ? "rtl" : "ltr"}
-      onClose={onClose}
-      onOpenChange={onOpenChange}
+      onClose={modal?.onClose}
+      onOpenChange={modal?.onOpenChange}
       size="xl"
+      {...modal}
     >
       <ModalContent className="px-5">
         <ModalBody className="h-[60vh]">

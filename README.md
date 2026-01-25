@@ -12,13 +12,6 @@ Each one of them has props to control every aspect pf the component, with enabli
 
 ## Components
 
-### Footer
-
-- copy rights placeholder
-- Quick links
-- Quick form
-- Social buttons with logos
-
 ### Item Card
 
 - Image
@@ -43,11 +36,6 @@ Each one of them has props to control every aspect pf the component, with enabli
 - Description
 - Price
 
-### Nav-bar
-
-- Navigation buttons using a provided custom router
-- Auto-controlled position: at the top for desktop, or at the bottom for mobile view
-
 ### Filter
 
 - Filter layouts: side box on desktop, drawer on mobile
@@ -57,12 +45,3 @@ Each one of them has props to control every aspect pf the component, with enabli
   - Multiple checkboxes under an accordion
   - autocomplete or select box
 - Action buttons: apply filters, reset filters
-
----
-
-## Documentation Page
-
-- Introducing the tool and its usage
-- Installation guide
-- Components with usage and code variants
-- Components API

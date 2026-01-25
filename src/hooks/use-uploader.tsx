@@ -5,7 +5,7 @@ import { FileObject, UseUploadFileProps, UseUploadFileReturn } from "@/types";
 import { useState } from "react";
 import { useEmperorUI } from "@/hooks";
 import {
-  compressUploadedFiles,
+  validateUploadedFiles,
   getAllowedTypes,
   refineUploadedFiles,
 } from "@/utils";
@@ -15,11 +15,11 @@ export const useUploader = ({
   labelContent,
   labelId,
   fileTypes,
-  isRequired = true,
+  isRequired = false,
   isDraggable = true,
   isMulti = false,
   preventDuplicates = true,
-  maxCount = 5,
+  maxCount = 10,
   maxFileSize = ONE_MEGABYTE * 10,
   compressFiles = false,
   onChange = () => {},
@@ -36,6 +36,14 @@ export const useUploader = ({
   // remove a specific uploaded file
   const handleClearFile = (fileName?: string) => {
     setFiles((prev) => prev?.filter((file) => file?.file?.name !== fileName));
+
+    // Reset the input value to allow re-uploading the same file
+    if (labelId) {
+      const input = document.getElementById(labelId) as HTMLInputElement;
+      if (input) {
+        input.value = "";
+      }
+    }
   };
 
   // handle the uploading process including the window upload and the drag-and-drop upload
@@ -91,7 +99,7 @@ export const useUploader = ({
 
     // validate the files' sizes if none of them exceeds the maximum allowed size
     // validate files' names to ensure there are no duplicates if specified
-    const { compressedFiles, isInValid } = await compressUploadedFiles({
+    const { compressedFiles, isInValid } = await validateUploadedFiles({
       uploadedFiles,
       maxFileSize,
       compressFiles,
@@ -119,6 +127,12 @@ export const useUploader = ({
     setTimeout(() => {
       onChange();
     }, 200);
+
+    // Reset the input value to allow re-uploading the same file
+    // Only reset for input change events, not drag events
+    if (event.target && "value" in event.target && event.target.files) {
+      (event.target as HTMLInputElement).value = "";
+    }
   };
 
   return {

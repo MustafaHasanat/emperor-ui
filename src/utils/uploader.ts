@@ -48,12 +48,12 @@ export const isMaxFileSizeExceeded = ({
   maxFileSize: number;
 }): boolean => fileSize > maxFileSize * 1024;
 
-export async function compressUploadedFiles({
+export async function validateUploadedFiles({
   uploadedFiles,
   maxFileSize = ONE_MEGABYTE * 10,
-  compressFiles = false,
+  compressFiles,
   locale,
-  preventDuplicates = true,
+  preventDuplicates,
   files,
 }: {
   uploadedFiles: File[];

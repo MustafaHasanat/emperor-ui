@@ -6,7 +6,7 @@ import { MOCK_HEADER_ITEMS } from "@/mocks";
 import { HeaderProps } from "@/types";
 
 const meta: Meta<typeof Header> = {
-  title: "Molecules/Header",
+  title: "Organisms/Header",
   component: Header,
   parameters: {
     layout: "fullscreen",

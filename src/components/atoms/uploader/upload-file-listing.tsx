@@ -44,7 +44,7 @@ export function UploadFileListing() {
                 setSelectedFile?.(file);
                 modal?.onOpen?.();
               }}
-              startContent={<Eye className="rounded-lg" />}
+              startContent={<Eye className="rounded-lg size-4" />}
             />
           )}
         </div>
