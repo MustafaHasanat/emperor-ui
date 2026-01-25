@@ -1,4 +1,4 @@
-import { PortalProps } from "@types";
+import { PortalProps } from "@/types";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -12,7 +12,9 @@ export function Portal({
   useEffect(() => {
     const element = document.getElementById(containerId);
 
-    setContainer(element);
+    setTimeout(() => {
+      setContainer(element);
+    }, 100);
   }, [containerId]);
 
   if (!container || !isVisible) {

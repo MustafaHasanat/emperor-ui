@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Uploader } from "@components";
-import { getStorybookDecorators } from "@utils";
-import { UploaderProps } from "@types";
-import { useUploader } from "@hooks";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Uploader } from "@/components";
+import { getStorybookDecorators } from "@/utils";
+import { UploaderProps } from "@/types";
+import { useUploader } from "@/hooks";
 
 const meta: Meta<typeof Uploader> = {
   title: "Atoms/Uploader",

@@ -1,5 +1,5 @@
-import { ConfigProviderProps } from "@types";
-import { ConfigProvider, NavigationProvider } from "@providers";
+import { ConfigProviderProps } from "@/types";
+import { ConfigProvider, NavigationProvider } from "@/providers";
 import { HeroUIProvider, ToastProvider } from "@heroui/react";
 import { Fragment } from "react";
 

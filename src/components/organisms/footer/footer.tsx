@@ -1,5 +1,5 @@
-import type { FooterProps } from "@types";
-import { cn } from "@utils";
+import type { FooterProps } from "@/types";
+import { cn } from "@/utils";
 import { VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { footerClasses, footerStyles } from "./styles";

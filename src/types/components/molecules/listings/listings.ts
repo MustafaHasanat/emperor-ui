@@ -1,4 +1,4 @@
-import type { SharedComponentProps } from "@types";
+import type { SharedComponentProps } from "@/types";
 
 export type ListingsClassnames = {
   base?: string;

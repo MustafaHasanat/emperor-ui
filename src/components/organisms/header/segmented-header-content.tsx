@@ -1,7 +1,7 @@
-import { SegmentedHeaderContentProps } from "@types";
+import { SegmentedHeaderContentProps } from "@/types";
 import { Children } from "react";
-import { Row } from "@components";
-import { useEmperorUI } from "@hooks";
+import { Row } from "@/components";
+import { useEmperorUI } from "@/hooks";
 import { getGlassEffectStyles } from "./styles/styles";
 
 export const SegmentedHeaderContent = ({

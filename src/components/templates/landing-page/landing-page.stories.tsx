@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { LandingPage } from "@components";
-import { getStorybookDecorators } from "@utils";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { LandingPage } from "@/components";
+import { getStorybookDecorators } from "@/utils";
 
 const meta: Meta<typeof LandingPage> = {
   title: "Templates/LandingPage",

@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Brand, SideBar } from "@components";
-import { getStorybookDecorators } from "@utils";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Brand, SideBar } from "@/components";
+import { getStorybookDecorators } from "@/utils";
 import { MenuIcon } from "lucide-react";
 import { useDisclosure } from "@heroui/react";
-import { MOCK_HEADER_ACTIONS, MOCK_HEADER_ITEMS } from "@mocks";
+import { MOCK_HEADER_ACTIONS, MOCK_HEADER_ITEMS } from "@/mocks";
+import { SideBarProps } from "@/types";
 
 const meta: Meta<typeof SideBar> = {
   title: "Molecules/SideBar",
@@ -33,7 +34,7 @@ export const Default: Story = {
       startContent: <MenuIcon className="size-4" />,
     },
   },
-  render: (args) => {
+  render: (args: SideBarProps) => {
     const { isOpen, onOpenChange } = useDisclosure();
 
     return <SideBar {...args} isOpen={isOpen} onOpenChange={onOpenChange} />;
@@ -48,7 +49,7 @@ export const WithItems: Story = {
       startContent: <MenuIcon className="size-4" />,
     },
   },
-  render: (args) => {
+  render: (args: SideBarProps) => {
     const { isOpen, onOpenChange } = useDisclosure();
 
     return (
@@ -70,7 +71,7 @@ export const WithActions: Story = {
       startContent: <MenuIcon className="size-4" />,
     },
   },
-  render: (args) => {
+  render: (args: SideBarProps) => {
     const { isOpen, onOpenChange } = useDisclosure();
 
     return (
@@ -89,7 +90,7 @@ export const Compact: Story = {
   args: {
     variant: "compact",
   },
-  render: (args) => {
+  render: (args: SideBarProps) => {
     const { isOpen, onOpenChange } = useDisclosure();
 
     return (

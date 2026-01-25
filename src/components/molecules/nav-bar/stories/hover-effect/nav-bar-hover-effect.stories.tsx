@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { NavBar } from "@components";
-import { getStorybookDecorators } from "@utils";
-import { MOCK_HEADER_ITEMS } from "@mocks";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { NavBar } from "@/components";
+import { getStorybookDecorators } from "@/utils";
+import { MOCK_HEADER_ITEMS } from "@/mocks";
 
 const meta: Meta<typeof NavBar> = {
   title: "Molecules/NavBar/HoverEffect",

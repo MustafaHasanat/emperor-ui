@@ -1,6 +1,6 @@
 import { cn, Link } from "@heroui/react";
-import { useNavigation } from "@hooks";
-import { SubItemsBoxProps } from "@types";
+import { useNavigation } from "@/hooks";
+import { SubItemsBoxProps } from "@/types";
 
 export const SubItemsBox = ({ subItemsColumns = 3 }: SubItemsBoxProps) => {
   const {

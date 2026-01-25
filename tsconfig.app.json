@@ -25,16 +25,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "@utils": ["./src/utils"],
-      "@components": ["./src/components"],
-      "@constants": ["./src/constants"],
-      "@hooks": ["./src/hooks"],
-      "@context": ["./src/context"],
-      "@examples": ["./src/examples"],
-      "@providers": ["./src/providers"],
-      "@types": ["./src/types"],
-      "@mocks": ["./src/mocks"],
-      "@enums": ["./src/enums"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [

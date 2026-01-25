@@ -1,4 +1,4 @@
-import { UploaderContext } from "@context";
+import { UploaderContext } from "@/context";
 import { useContext } from "react";
 
 export function useUploaderContext() {

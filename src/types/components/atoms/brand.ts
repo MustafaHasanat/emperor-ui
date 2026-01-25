@@ -1,4 +1,4 @@
-import { SharedComponentProps } from "@types";
+import { SharedComponentProps } from "@/types";
 
 export type BrandProps = SharedComponentProps & {
   src?: string;

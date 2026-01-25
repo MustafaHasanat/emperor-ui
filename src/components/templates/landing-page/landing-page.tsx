@@ -1,11 +1,11 @@
 import { forwardRef, ComponentProps } from "react";
 import { VariantProps } from "class-variance-authority";
-import { cn } from "@utils";
-import { LandingPageProps } from "@types";
+import { cn } from "@/utils";
+import { LandingPageProps } from "@/types";
 import { landingPageClasses } from "./styles";
-import { Brand, Header, NavBar } from "@components";
-import { MOCK_HEADER_ITEMS_WITH_SUB_ITEMS } from "@mocks";
-import { FAKE_PARAGRAPH } from "@constants";
+import { Brand, Header, NavBar } from "@/components";
+import { MOCK_HEADER_ITEMS_WITH_SUB_ITEMS } from "@/mocks";
+import { FAKE_PARAGRAPH } from "@/constants";
 
 const GLASS_EFFECT_CONFIG = {
   enabled: true,

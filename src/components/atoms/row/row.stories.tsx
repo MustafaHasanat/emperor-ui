@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Row } from "@components";
-import { getStorybookDecorators } from "@utils";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Row } from "@/components";
+import { getStorybookDecorators } from "@/utils";
+import type { RowProps } from "@/types";
 
 const meta: Meta<typeof Row> = {
   title: "Atoms/Row",
@@ -24,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {},
-  render: (args) => (
+  render: (args: RowProps) => (
     <Row {...args}>
       {Array.from({ length: 5 }).map((_, index) => (
         <div key={index} className="bg-blue-300 p-2 rounded-md">

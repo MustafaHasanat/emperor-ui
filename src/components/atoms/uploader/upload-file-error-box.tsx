@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@heroui/react";
-import { useEmperorUI, useUploaderContext } from "@hooks";
+import { useEmperorUI, useUploaderContext } from "@/hooks";
 import { useMemo } from "react";
 
 export function UploadFileErrorBox() {

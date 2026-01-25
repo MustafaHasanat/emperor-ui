@@ -1,8 +1,8 @@
-import type { UploaderProps } from "@types";
-import { cn } from "@utils";
+import type { UploaderProps } from "@/types";
+import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
-import { UploaderProvider } from "@providers";
+import { UploaderProvider } from "@/providers";
 import {
   AvatarLabel,
   UploadFileLabel,
@@ -10,7 +10,7 @@ import {
   UploadFileListing,
   UploadFileErrorBox,
   UploadFileInput,
-} from "@components";
+} from "@/components";
 
 const uploaderStyles = cva(["w-full flex flex-col gap-2"], {
   variants: {},

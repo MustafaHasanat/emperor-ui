@@ -1,8 +1,8 @@
 "use client";
 
-import { Placeholders } from "@enums";
+import { Placeholders } from "@/enums";
 import { Avatar, Spinner, cn } from "@heroui/react";
-import { useEmperorUI, useUploaderContext } from "@hooks";
+import { useEmperorUI, useUploaderContext } from "@/hooks";
 import { useState } from "react";
 
 export function AvatarLabel() {

@@ -1,4 +1,4 @@
-import { useEmperorUI } from "@hooks";
+import { useEmperorUI } from "@/hooks";
 import { useState } from "react";
 import {
   Button,
@@ -10,8 +10,8 @@ import {
   Divider,
   DrawerFooter,
 } from "@heroui/react";
-import { SideBarProps } from "@types";
-import { cn } from "@utils";
+import { SideBarProps } from "@/types";
+import { cn } from "@/utils";
 import { sideBarItemClasses, sideBarItemStyles } from "./styles";
 
 export const SideBarDrawer = ({

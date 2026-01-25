@@ -2,7 +2,7 @@ import type {
   ComponentRadius,
   ComponentSize,
   SharedComponentProps,
-} from "@types";
+} from "@/types";
 import type { ElementType } from "react";
 
 export type NavBarClassnames = {
@@ -34,6 +34,7 @@ export type NavBarStylesProps = {
   variant?: NavBarVariant;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type NavBarMenuStylesProps = {};
 
 export type NavBarItemStylesProps = {

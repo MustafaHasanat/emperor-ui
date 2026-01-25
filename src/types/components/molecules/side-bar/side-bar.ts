@@ -1,5 +1,5 @@
 import { ButtonProps } from "@heroui/react";
-import type { NavigationItem, SharedComponentProps } from "@types";
+import type { NavigationItem, SharedComponentProps } from "@/types";
 import type { ReactNode } from "react";
 
 export type SideBarVariant = "default" | "compact";

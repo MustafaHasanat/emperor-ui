@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@heroui/react";
-import { useUploaderContext } from "@hooks";
-import { fileTypesMapping } from "@constants";
+import { useUploaderContext } from "@/hooks";
+import { fileTypesMapping } from "@/constants";
 
 export function UploadFileInput() {
   const {

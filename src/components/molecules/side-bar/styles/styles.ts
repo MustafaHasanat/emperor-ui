@@ -1,4 +1,4 @@
-import { SideBarItemStylesProps } from "@types";
+import { SideBarItemStylesProps } from "@/types";
 import { CSSProperties } from "react";
 
 export const sideBarItemStyles = ({

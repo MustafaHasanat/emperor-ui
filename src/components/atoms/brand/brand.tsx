@@ -1,8 +1,8 @@
-import type { BrandProps } from "@types";
-import { cn } from "@utils";
+import type { BrandProps } from "@/types";
+import { cn } from "@/utils";
 import { VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Row } from "@components";
+import { Row } from "@/components";
 import { brandStyles } from "./styles";
 import { Image } from "@heroui/react";
 

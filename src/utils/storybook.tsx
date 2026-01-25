@@ -1,6 +1,6 @@
-import { EmperorUIProvider } from "@providers";
-import { defaultEmperorUIConfig } from "@constants";
-import { EmperorUIConfig } from "@types";
+import { EmperorUIProvider } from "@/providers";
+import { defaultEmperorUIConfig } from "@/constants";
+import { EmperorUIConfig } from "@/types";
 
 export const getStorybookDecorators = ({
   config = defaultEmperorUIConfig,

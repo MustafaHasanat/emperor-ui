@@ -2,7 +2,7 @@ import {
   NavBarItemStylesProps,
   NavBarMenuStylesProps,
   NavBarStylesProps,
-} from "@types";
+} from "@/types";
 import { CSSProperties } from "react";
 
 export const navBarStyles = ({
@@ -20,6 +20,7 @@ export const navBarStyles = ({
   return {};
 };
 
+// eslint-disable-next-line no-empty-pattern
 export const navBarMenuStyles = ({}: NavBarMenuStylesProps): CSSProperties => {
   return {};
 };

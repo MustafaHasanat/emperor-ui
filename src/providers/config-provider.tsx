@@ -1,11 +1,11 @@
-import { Scaffold } from "@components";
-import { defaultEmperorUIConfig } from "@constants";
-import { EmperorUIContext } from "@context";
+import { Scaffold } from "@/components";
+import { defaultEmperorUIConfig } from "@/constants";
+import { EmperorUIContext } from "@/context";
 import type {
   ConfigContextState,
   ConfigProviderProps,
   EmperorUIConfig,
-} from "@types";
+} from "@/types";
 import { useMemo } from "react";
 
 export function ConfigProvider({

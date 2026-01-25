@@ -2,9 +2,9 @@ import type {
   UploaderProviderProps,
   UploaderContextState,
   FileObject,
-} from "@types";
+} from "@/types";
 import { useMemo, useState } from "react";
-import { UploaderContext } from "@context";
+import { UploaderContext } from "@/context";
 import { useDisclosure } from "@heroui/react";
 
 export function UploaderProvider({

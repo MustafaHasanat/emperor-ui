@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Scaffold } from "@components";
-import { getStorybookDecorators } from "@utils";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Scaffold } from "@/components";
+import { getStorybookDecorators } from "@/utils";
 
 const meta: Meta<typeof Scaffold> = {
   title: "Molecules/Scaffold",

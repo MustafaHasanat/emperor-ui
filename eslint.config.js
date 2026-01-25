@@ -10,21 +10,13 @@ import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
   globalIgnores(["dist"]),
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  reactHooks.configs.flat.recommended,
+  reactRefresh.configs.vite,
+  ...storybook.configs["flat/recommended"],
   {
     files: ["**/*.{ts,tsx}"],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:react-hooks/recommended",
-      "plugin:storybook/recommended"
-    ],
-    ignorePatterns: ["dist", ".eslintrc.cjs"],
-    parser: "@typescript-eslint/parser",
-    plugins: ["react-refresh"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -40,4 +32,3 @@ export default defineConfig([
     },
   },
 ]);
-

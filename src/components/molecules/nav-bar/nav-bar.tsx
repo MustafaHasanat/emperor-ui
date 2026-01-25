@@ -1,15 +1,15 @@
-import { cn } from "@utils";
+import { cn } from "@/utils";
 import { VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
-import type { NavBarProps } from "@types";
-import { useEmperorUI } from "@hooks";
+import type { NavBarProps } from "@/types";
+import { useEmperorUI } from "@/hooks";
 import {
   navBarClasses,
   navBarMenuClasses,
   navBarMenuStyles,
   navBarStyles,
 } from "./styles";
-import { NavBarItem, SubItemsBox } from "@components";
+import { NavBarItem, SubItemsBox } from "@/components";
 
 export const NavBar = forwardRef<
   HTMLDivElement,

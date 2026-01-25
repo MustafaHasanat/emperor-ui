@@ -1,4 +1,4 @@
-import { NavigationContext } from "@context";
+import { NavigationContext } from "@/context";
 import { useContext } from "react";
 
 export function useNavigation() {

@@ -1,12 +1,12 @@
-import { useEmperorUI } from "@hooks";
-import type { HeaderProps, NavBarHoverEffect, NavBarVariant } from "@types";
-import { cn } from "@utils";
+import { useEmperorUI } from "@/hooks";
+import type { HeaderProps, NavBarHoverEffect, NavBarVariant } from "@/types";
+import { cn } from "@/utils";
 import { VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Brand, NavBar, SideBar } from "@components";
+import { Brand, NavBar, SideBar } from "@/components";
 import { headerClasses, headerStyles } from "./styles";
 import { useDisclosure } from "@heroui/react";
-import { MOCK_HEADER_ITEMS, MOCK_HEADER_ACTIONS } from "@mocks";
+import { MOCK_HEADER_ITEMS, MOCK_HEADER_ACTIONS } from "@/mocks";
 import { SegmentedHeaderContent } from "./segmented-header-content";
 
 export const Header = forwardRef<

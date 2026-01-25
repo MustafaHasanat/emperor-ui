@@ -1,8 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Brand, Header, NavBar } from "@components";
-import { getStorybookDecorators } from "@utils";
-import { FAKE_PARAGRAPH } from "@constants";
-import { MOCK_HEADER_ITEMS } from "@mocks";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Brand, Header, NavBar } from "@/components";
+import { getStorybookDecorators } from "@/utils";
+import { FAKE_PARAGRAPH } from "@/constants";
+import { MOCK_HEADER_ITEMS } from "@/mocks";
+import { HeaderProps } from "@/types";
 
 const meta: Meta<typeof Header> = {
   title: "Molecules/Header",
@@ -34,7 +35,7 @@ export const Floating: Story = {
   args: {
     variant: "floating",
   },
-  render: (args) => {
+  render: (args: HeaderProps) => {
     return (
       <div>
         <Header {...args} />

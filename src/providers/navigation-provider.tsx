@@ -2,10 +2,10 @@ import type {
   NavigationProviderProps,
   NavigationContextState,
   NavigationItem,
-} from "@types";
+} from "@/types";
 import { useMemo, useState } from "react";
-import { NavigationContext } from "@context";
-import { PreservedKeys } from "@enums";
+import { NavigationContext } from "@/context";
+import { PreservedKeys } from "@/enums";
 
 export function NavigationProvider({ children }: NavigationProviderProps) {
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);

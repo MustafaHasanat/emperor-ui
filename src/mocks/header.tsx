@@ -1,4 +1,4 @@
-import { SideBarAction, NavigationItem } from "@types";
+import { SideBarAction, NavigationItem } from "@/types";
 import {
   HelpCircleIcon,
   HomeIcon,

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Brand } from "@components";
-import { getStorybookDecorators } from "@utils";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Brand } from "@/components";
+import { getStorybookDecorators } from "@/utils";
 
 const meta: Meta<typeof Brand> = {
   title: "Atoms/Brand",

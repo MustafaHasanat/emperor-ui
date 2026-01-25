@@ -1,4 +1,4 @@
-import { EmperorUIContext } from "@context";
+import { EmperorUIContext } from "@/context";
 import { useContext } from "react";
 
 export function useEmperorUI() {

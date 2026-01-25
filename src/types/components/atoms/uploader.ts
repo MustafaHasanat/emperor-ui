@@ -1,4 +1,4 @@
-import type { SharedComponentProps } from "@types";
+import type { SharedComponentProps } from "@/types";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type UploaderProps = SharedComponentProps &
@@ -54,7 +54,7 @@ export type UseUploadFileReturn = {
   onInputChange: (
     event: React.ChangeEvent<HTMLInputElement> &
       React.DragEvent<HTMLLabelElement>,
-  ) => Promise<void>;
+  ) => Promise<void | string | null>;
 };
 
 export type UploaderContextState = {

@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Portal } from "@components";
-import { getStorybookDecorators } from "@utils";
-import { FAKE_PARAGRAPH } from "@constants";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Portal } from "@/components";
+import { getStorybookDecorators } from "@/utils";
+import { FAKE_PARAGRAPH } from "@/constants";
 
 const meta: Meta<typeof Portal> = {
   title: "Atoms/Portal",

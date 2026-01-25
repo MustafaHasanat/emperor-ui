@@ -1,4 +1,4 @@
-import type { ColorsPalette, EmperorUIConfig } from "@types";
+import type { ColorsPalette, EmperorUIConfig } from "@/types";
 
 export const defaultColorsPalette: ColorsPalette = {
   primary: "#006FEE",

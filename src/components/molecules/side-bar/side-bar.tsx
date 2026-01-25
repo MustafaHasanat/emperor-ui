@@ -1,8 +1,8 @@
-import { cn } from "@utils";
+import { cn } from "@/utils";
 import { VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
 import { sideBarClasses } from "./styles";
-import type { SideBarProps } from "@types";
+import type { SideBarProps } from "@/types";
 import { SideBarDrawer } from "./side-bar-drawer";
 import { CompactSideBar } from "./compact-side-bar";
 

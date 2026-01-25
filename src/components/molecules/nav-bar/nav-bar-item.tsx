@@ -1,9 +1,9 @@
-import { cn } from "@utils";
+import { cn } from "@/utils";
 import { VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
-import type { NavBarItemProps } from "@types";
+import type { NavBarItemProps } from "@/types";
 import { navBarItemClasses, navBarItemStyles } from "./styles";
-import { useEmperorUI, useNavigation } from "@hooks";
+import { useEmperorUI, useNavigation } from "@/hooks";
 
 export const NavBarItem = forwardRef<
   HTMLLIElement,

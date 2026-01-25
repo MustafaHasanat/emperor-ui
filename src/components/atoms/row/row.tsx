@@ -1,5 +1,5 @@
-import type { RowProps } from "@types";
-import { cn } from "@utils";
+import type { RowProps } from "@/types";
+import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
 

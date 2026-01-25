@@ -1,6 +1,6 @@
 "use client";
 
-import { FileObject } from "@types";
+import { FileObject } from "@/types";
 /**
  * Compress an image to reduce its size
  *

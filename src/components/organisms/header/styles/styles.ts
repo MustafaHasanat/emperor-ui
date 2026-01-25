@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { HeaderGlassEffect, HeaderStylesProps } from "@types";
+import { HeaderGlassEffect, HeaderStylesProps } from "@/types";
 
 export const getGlassEffectStyles = ({
   glassEffect,

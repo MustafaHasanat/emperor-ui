@@ -1,6 +1,6 @@
-import { useEmperorUI } from "@hooks";
-import type { ScaffoldProps } from "@types";
-import { cn } from "@utils";
+import { useEmperorUI } from "@/hooks";
+import type { ScaffoldProps } from "@/types";
+import { cn } from "@/utils";
 import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
@@ -20,7 +20,7 @@ export const Scaffold = forwardRef<HTMLDivElement, ScaffoldProps>(
     return (
       <div
         ref={ref}
-        dir={config?.dir}
+        dir={config?.interLocalization?.dir}
         data-slot="scaffold"
         className={cn(scaffoldStyles({ className }), className)}
         style={{

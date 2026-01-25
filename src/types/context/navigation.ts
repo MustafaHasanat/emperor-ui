@@ -1,4 +1,4 @@
-import { NavigationItem } from "@types";
+import { NavigationItem } from "@/types";
 import { ReactNode } from "react";
 
 export type NavigationContextState = {

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, cn } from "@heroui/react";
-import { useUploaderContext } from "@hooks";
+import { useUploaderContext } from "@/hooks";
 import { Eye, Trash2 } from "lucide-react";
 
 export function UploadFileListing() {
@@ -21,7 +21,9 @@ export function UploadFileListing() {
             classNames?.listing,
           )}
         >
-          <p className="w-full text-ellipsis text-xs">{file?.file?.name}</p>
+          <p className="w-full line-clamp-1 text-xs max-w-60">
+            {file?.file?.name}
+          </p>
 
           <Button
             isIconOnly
@@ -29,7 +31,7 @@ export function UploadFileListing() {
             className="size-8 min-w-8 rounded-full"
             color="danger"
             onPress={() => handleClearFile(file?.file?.name)}
-            startContent={<Trash2 className="rounded-lg" />}
+            startContent={<Trash2 className="rounded-lg size-4" />}
           />
 
           {isFileViewable && (

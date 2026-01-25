@@ -1,8 +1,8 @@
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
-import { cn } from "@utils";
+import { cn } from "@/utils";
 import { Button, Divider, ScrollShadow } from "@heroui/react";
-import { CompactSideBarProps } from "@types";
+import { CompactSideBarProps } from "@/types";
 
 const CompactSideBarContent = ({
   items = [],
@@ -62,7 +62,9 @@ export const CompactSideBar = (props: CompactSideBarProps) => {
 
   useEffect(() => {
     const element = document.getElementById("emperor-compact-sidebar");
-    setContainer(element);
+    setTimeout(() => {
+      setContainer(element);
+    }, 100);
   }, []);
 
   if (!container) {
