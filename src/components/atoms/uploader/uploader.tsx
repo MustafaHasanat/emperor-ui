@@ -10,6 +10,7 @@ import {
   UploadFileListing,
   UploadFileErrorBox,
   UploadFileInput,
+  UploaderTitle,
 } from "@/components";
 
 const uploaderStyles = cva(["w-full flex flex-col gap-2"], {
@@ -40,6 +41,8 @@ export const Uploader = forwardRef<
   return (
     <UploaderProvider {...props}>
       <div ref={ref} className={cn(uploaderStyles({ className }))} {...props}>
+        <UploaderTitle />
+
         {isAvatar ? <AvatarLabel /> : <UploadFileLabel />}
 
         {!hideListing && <UploadFileListing />}

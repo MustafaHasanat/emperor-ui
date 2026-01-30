@@ -33,7 +33,7 @@ export const Footer = forwardRef<
     return (
       <footer
         ref={ref}
-        data-slot="emperor-footer"
+        data-slot="emperor-ui-footer"
         className={cn(
           footerClasses({
             variant,

@@ -6,7 +6,7 @@ import { useMemo } from "react";
 
 export function UploadFileErrorBox() {
   const { config } = useEmperorUI();
-  const { files, isRequired, classNames } = useUploaderContext();
+  const { files, isRequired, classNames, errorMessage } = useUploaderContext();
 
   const locales = config?.interLocalization?.locales;
   const lang = config?.interLocalization?.lang;
@@ -21,7 +21,7 @@ export function UploadFileErrorBox() {
   if (isError)
     return (
       <p className={cn("text-[14px] text-danger", classNames?.error)}>
-        {locale?.errorUploadingFile}
+        {errorMessage || locale?.errorUploadingFile}
       </p>
     );
 

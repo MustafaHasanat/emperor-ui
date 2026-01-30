@@ -25,7 +25,7 @@ export type SharedLabelIdType = string;
 export type SharedOnInputChangeType = (
   event: React.ChangeEvent<HTMLInputElement> &
     React.DragEvent<HTMLLabelElement>,
-) => Promise<void>;
+) => Promise<void | string | null>;
 
 export type UseUploadFileProps = {
   labelId: string;
@@ -52,10 +52,7 @@ export type UseUploadFileReturn = {
   isLoading: boolean;
   setFiles: Dispatch<SetStateAction<FileObject[]>>;
   handleClearFile: (fileName?: string) => void;
-  onInputChange: (
-    event: React.ChangeEvent<HTMLInputElement> &
-      React.DragEvent<HTMLLabelElement>,
-  ) => Promise<void | string | null>;
+  onInputChange: SharedOnInputChangeType;
 };
 
 export type UploaderContextState = {
@@ -65,6 +62,8 @@ export type UploaderContextState = {
   labelId: SharedLabelIdType;
   labelContent?: ReactNode;
   avatarLabelContent?: ReactNode;
+  title?: ReactNode;
+  errorMessage?: ReactNode;
 
   isFileViewable?: boolean;
   isRequired?: boolean;
@@ -89,6 +88,7 @@ export type UploaderContextState = {
     listing?: string;
     error?: string;
     input?: string;
+    title?: string;
   };
 };
 

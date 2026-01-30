@@ -1,6 +1,15 @@
 import type { ListingsProps } from "@/types";
-import { cn } from "@/utils";
+import { listingsClasses, listingsStyles } from "./styles";
 
-export function Listings({ className }: ListingsProps) {
-  return <div className={cn("", className)}>Listings Component</div>;
+export function Listings<ListingType>({
+  className,
+  variant = "default",
+}: ListingsProps<ListingType>) {
+  return (
+    <section
+      data-slot="emperor-ui-listings"
+      className={listingsClasses({ className, variant })}
+      style={listingsStyles({ variant })}
+    ></section>
+  );
 }

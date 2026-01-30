@@ -4,6 +4,10 @@ export type ListingsClassnames = {
   base?: string;
 };
 
-export type ListingsProps = SharedComponentProps & {
+export type ListingsVariant = "default";
+
+export type ListingsProps<ListingType> = SharedComponentProps & {
   classNames?: ListingsClassnames;
+  variant?: ListingsVariant;
+  items: ListingType[];
 };

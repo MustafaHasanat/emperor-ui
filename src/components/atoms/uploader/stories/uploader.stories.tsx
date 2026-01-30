@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Uploader } from "@/components";
 import { getStorybookDecorators } from "@/utils";
-import { UploaderProps } from "@/types";
 import { useUploader } from "@/hooks";
 import { useDisclosure } from "@heroui/react";
 
@@ -27,32 +26,32 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "image",
     });
 
-    return <Uploader {...uploadProps} {...args} />;
+    return <Uploader {...uploadProps} />;
   },
 };
 
 export const MultiFiles: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "image",
       isMulti: true,
     });
 
-    return <Uploader {...uploadProps} {...args} />;
+    return <Uploader {...uploadProps} />;
   },
 };
 
 export const WithMaxCount: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "image",
@@ -60,38 +59,51 @@ export const WithMaxCount: Story = {
       maxCount: 2,
     });
 
-    return <Uploader {...uploadProps} {...args} />;
+    return <Uploader {...uploadProps} />;
   },
 };
 
 export const Required: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "image",
       isRequired: true,
     });
 
-    return <Uploader {...uploadProps} {...args} />;
+    return <Uploader {...uploadProps} />;
+  },
+};
+
+export const WithErrorMessage: Story = {
+  args: {},
+  render: () => {
+    const uploadProps = useUploader({
+      fileTypes: ["image"],
+      labelId: "image",
+      isRequired: true,
+    });
+
+    return <Uploader {...uploadProps} errorMessage="Please upload an image" />;
   },
 };
 
 export const HideListings: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "image",
     });
 
-    return <Uploader hideListing {...uploadProps} {...args} />;
+    return <Uploader hideListing {...uploadProps} />;
   },
 };
 
 export const ViewableImages: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "image",
@@ -106,7 +118,6 @@ export const ViewableImages: Story = {
           ...modalProps,
         }}
         {...uploadProps}
-        {...args}
       />
     );
   },
@@ -114,20 +125,20 @@ export const ViewableImages: Story = {
 
 export const AllowDuplicates: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "image",
       preventDuplicates: false,
     });
 
-    return <Uploader {...uploadProps} {...args} />;
+    return <Uploader {...uploadProps} />;
   },
 };
 
 export const CompressFiles: Story = {
   args: {},
-  render: (args: UploaderProps) => {
+  render: () => {
     const uploadProps = useUploader({
       fileTypes: ["image"],
       labelId: "uncompressed-image",
@@ -145,8 +156,8 @@ export const CompressFiles: Story = {
         <h3 className="text-lg font-bold">Uncompressed</h3>
         <h3 className="text-lg font-bold">Compressed</h3>
 
-        <Uploader {...uploadProps} {...args} />
-        <Uploader {...compressedUploadProps} {...args} />
+        <Uploader {...uploadProps} />
+        <Uploader {...compressedUploadProps} />
 
         <p className="text-sm text-gray-500">
           File size: {uploadProps.files[0]?.file?.size || "---"}
@@ -156,5 +167,17 @@ export const CompressFiles: Story = {
         </p>
       </div>
     );
+  },
+};
+
+export const WithTitle: Story = {
+  args: {},
+  render: () => {
+    const uploadProps = useUploader({
+      fileTypes: ["image"],
+      labelId: "image",
+    });
+
+    return <Uploader {...uploadProps} title="Upload your image" />;
   },
 };
