@@ -18,6 +18,7 @@ export function AvatarLabel() {
     placeholderImage,
     files,
     isLoading,
+    isMulti,
   } = useUploaderContext();
 
   const locales = config?.interLocalization?.locales;
@@ -44,6 +45,10 @@ export function AvatarLabel() {
   const handleDragLeave = () => {
     setDraggableMessage("");
   };
+
+  if (!isMulti && files?.length > 0) {
+    return null;
+  }
 
   if (isLoading)
     return (

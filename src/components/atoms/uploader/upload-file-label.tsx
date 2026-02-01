@@ -15,6 +15,8 @@ export function UploadFileLabel() {
     isDraggable,
     onInputChange,
     isLoading,
+    isMulti,
+    files,
   } = useUploaderContext();
 
   const locales = config?.interLocalization?.locales;
@@ -41,6 +43,10 @@ export function UploadFileLabel() {
   const handleDragLeave = () => {
     setDraggableMessage("");
   };
+
+  if (!isMulti && files?.length > 0) {
+    return null;
+  }
 
   if (isLoading)
     return (

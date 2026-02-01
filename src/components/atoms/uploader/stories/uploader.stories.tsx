@@ -39,7 +39,7 @@ export const Default: Story = {
   args: {},
   render: () => {
     const uploadProps = useUploader({
-      fileTypes: ["image"],
+      fileTypes: ["image", "pdf"],
       labelId: "image",
     });
 
@@ -51,7 +51,7 @@ export const MultiFiles: Story = {
   args: {},
   render: () => {
     const uploadProps = useUploader({
-      fileTypes: ["image"],
+      fileTypes: ["image", "pdf"],
       labelId: "image",
       isMulti: true,
     });

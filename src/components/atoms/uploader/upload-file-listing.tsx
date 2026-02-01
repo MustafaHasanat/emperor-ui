@@ -8,48 +8,56 @@ export function UploadFileListing() {
   const { files, setSelectedFile, handleClearFile, classNames, modal } =
     useUploaderContext();
 
-  return files?.map((file) => {
-    const isFileViewable =
-      modal?.onOpen && file?.view && file?.file?.name && file?.type === "image";
+  return (
+    <ul className={cn("w-full flex flex-col gap-2", classNames?.listing)}>
+      {files?.map((file) => {
+        const isFileViewable =
+          modal?.onOpen &&
+          file?.view &&
+          file?.file?.name &&
+          file?.type === "image";
 
-    if (file)
-      return (
-        <div
-          key={file?.file?.name}
-          className={cn(
-            "flex justify-between items-center p-2 gap-2 w-full border border-black/30 rounded-lg",
-            classNames?.listing,
-          )}
-        >
-          <p className="w-full line-clamp-1 text-xs max-w-60">
-            {file?.file?.name}
-          </p>
+        if (!file) return null;
 
-          <Button
-            isIconOnly
-            variant="flat"
-            className="size-8 min-w-8 rounded-full"
-            color="danger"
-            onPress={() => handleClearFile(file?.file?.name)}
-            startContent={<Trash2 className="rounded-lg size-4" />}
-          />
+        return (
+          <li
+            key={file?.file?.name}
+            className={cn(
+              "flex justify-between items-center p-2 gap-2 w-full border border-black/30 rounded-lg",
+              classNames?.listingItem,
+            )}
+          >
+            <p className="w-full line-clamp-1 text-xs max-w-60">
+              {file?.file?.name}
+            </p>
 
-          {isFileViewable && (
             <Button
               isIconOnly
               variant="flat"
-              className="size-8 min-w-8 rounded-full"
-              color="primary"
-              onPress={() => {
-                setSelectedFile?.(file);
-                modal?.onOpen?.();
-              }}
-              startContent={<Eye className="rounded-lg size-4" />}
+              radius="full"
+              className="size-6 min-w-6"
+              color="danger"
+              onPress={() => handleClearFile(file?.file?.name)}
+              startContent={<Trash2 className="rounded-lg size-3" />}
             />
-          )}
-        </div>
-      );
 
-    return null;
-  });
+            {isFileViewable && (
+              <Button
+                isIconOnly
+                variant="flat"
+                radius="full"
+                className="size-6 min-w-6"
+                color="primary"
+                onPress={() => {
+                  setSelectedFile?.(file);
+                  modal?.onOpen?.();
+                }}
+                startContent={<Eye className="rounded-lg size-3" />}
+              />
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }

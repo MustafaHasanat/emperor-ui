@@ -86,6 +86,7 @@ export type UploaderContextState = {
     label?: string;
     avatar?: string;
     listing?: string;
+    listingItem?: string;
     error?: string;
     input?: string;
     title?: string;
