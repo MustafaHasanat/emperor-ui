@@ -10,6 +10,7 @@ import {
   refineUploadedFiles,
 } from "@/utils";
 import { ONE_MEGABYTE } from "@/constants";
+import { Locale } from "@/i18n";
 
 export const useUploader = ({
   labelContent,
@@ -31,7 +32,7 @@ export const useUploader = ({
   const locales = config?.interLocalization?.locales;
   const lang = config?.interLocalization?.lang;
 
-  const locale = locales?.[lang || "en"];
+  const locale = locales?.[lang || "en"] as Locale;
 
   // remove a specific uploaded file
   const handleClearFile = (fileName?: string) => {
