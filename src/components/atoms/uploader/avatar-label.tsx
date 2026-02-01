@@ -38,7 +38,7 @@ export function AvatarLabel() {
       React.DragEvent<HTMLLabelElement>,
   ) => {
     event.preventDefault();
-    setDraggableMessage(locale?.dropHere || "");
+    setDraggableMessage(locale?.atoms?.uploader?.dropHere || "");
   };
 
   const handleDragLeave = () => {

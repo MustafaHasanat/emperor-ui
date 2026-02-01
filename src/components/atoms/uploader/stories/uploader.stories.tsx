@@ -3,6 +3,7 @@ import { Uploader } from "@/components";
 import { getStorybookDecorators } from "@/utils";
 import { useUploader } from "@/hooks";
 import { useDisclosure } from "@heroui/react";
+import { LangKey } from "@/i18n";
 
 const meta: Meta<typeof Uploader> = {
   title: "Atoms/Uploader",
@@ -15,6 +16,16 @@ const meta: Meta<typeof Uploader> = {
     config: {
       layout: {
         withScaffold: false,
+      },
+      interLocalization: {
+        locales: {
+          [LangKey.ENGLISH]: {
+            atoms: {
+              uploader: {},
+            },
+          },
+          [LangKey.ARABIC]: {},
+        },
       },
     },
   }),
@@ -76,7 +87,7 @@ export const Required: Story = {
   },
 };
 
-export const WithErrorMessage: Story = {
+export const CustomErrorMessage: Story = {
   args: {},
   render: () => {
     const uploadProps = useUploader({
@@ -85,7 +96,7 @@ export const WithErrorMessage: Story = {
       isRequired: true,
     });
 
-    return <Uploader {...uploadProps} errorMessage="Please upload an image" />;
+    return <Uploader errorMessage="Please upload an image" {...uploadProps} />;
   },
 };
 

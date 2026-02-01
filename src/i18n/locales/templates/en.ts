@@ -1,1 +1,1 @@
-export const toastsEn = {};
+export const templatesEn = {};

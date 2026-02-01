@@ -21,7 +21,7 @@ export function UploadFileErrorBox() {
   if (isError)
     return (
       <p className={cn("text-[14px] text-danger", classNames?.error)}>
-        {errorMessage || locale?.errorUploadingFile}
+        {errorMessage || locale?.atoms?.uploader?.errorUploadingFile}
       </p>
     );
 

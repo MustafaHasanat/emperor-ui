@@ -58,7 +58,7 @@ export const useUploader = ({
       (!event?.dataTransfer?.files || !event?.dataTransfer?.files[0])
     ) {
       return addToast({
-        title: locale?.errorUploadingFile,
+        title: locale?.atoms?.uploader?.errorUploadingFile,
       });
     }
 
@@ -80,7 +80,7 @@ export const useUploader = ({
         files?.length + uploadedFiles?.length > maxCount)
     ) {
       addToast({
-        title: `${locale?.maxNumImages} ${maxCount}`,
+        title: `${locale?.atoms?.uploader?.maxNumImages} ${maxCount}`,
       });
       return;
     }
@@ -92,7 +92,7 @@ export const useUploader = ({
         ?.every((type) => allowedTypes.includes(type))
     ) {
       addToast({
-        title: `${locale?.errorUploadedTypes} ${allowedTypes.join(", ")}`,
+        title: `${locale?.atoms?.uploader?.errorUploadedTypes} ${allowedTypes.join(", ")}`,
       });
       return;
     }

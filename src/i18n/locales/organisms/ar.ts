@@ -1,1 +1,1 @@
-export const toastsAr = {};
+export const organismsAr = {};

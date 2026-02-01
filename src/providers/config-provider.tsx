@@ -1,11 +1,13 @@
 import { Scaffold } from "@/components";
 import { defaultEmperorUIConfig } from "@/constants";
 import { EmperorUIContext } from "@/context";
+import { LangKey, Locale } from "@/i18n";
 import type {
   ConfigContextState,
   ConfigProviderProps,
   EmperorUIConfig,
 } from "@/types";
+import { mergeLocales } from "@/utils";
 import { useMemo } from "react";
 
 export function ConfigProvider({
@@ -29,6 +31,22 @@ export function ConfigProvider({
       interLocalization: {
         ...defaultEmperorUIConfig?.interLocalization,
         ...config?.interLocalization,
+        locales: {
+          [LangKey.ENGLISH]: mergeLocales({
+            defaultLocales: defaultEmperorUIConfig?.interLocalization
+              ?.locales?.[LangKey.ENGLISH] as Locale,
+            configLocales: config?.interLocalization?.locales?.[
+              LangKey.ENGLISH
+            ] as Locale,
+          }),
+          [LangKey.ARABIC]: mergeLocales({
+            defaultLocales: defaultEmperorUIConfig?.interLocalization
+              ?.locales?.[LangKey.ARABIC] as Locale,
+            configLocales: config?.interLocalization?.locales?.[
+              LangKey.ARABIC
+            ] as Locale,
+          }),
+        },
       },
     };
 

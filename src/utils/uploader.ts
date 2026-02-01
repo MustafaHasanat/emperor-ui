@@ -8,6 +8,7 @@ import { FileObject, FileType } from "@/types";
 import { addToast } from "@heroui/react";
 import { compressImage } from "@/utils";
 import { Dispatch, SetStateAction } from "react";
+import { Locale } from "@/i18n";
 
 // get the corresponding FileType giving the extension of the uploaded file
 export const mapFileType = (fileType: string): FileType | null => {
@@ -59,7 +60,7 @@ export async function validateUploadedFiles({
   uploadedFiles: File[];
   maxFileSize?: number;
   compressFiles?: boolean;
-  locale?: Record<string, string> | undefined;
+  locale?: Locale;
   preventDuplicates?: boolean;
   files: FileObject[];
 }) {
@@ -69,7 +70,7 @@ export async function validateUploadedFiles({
     uploadedFiles?.map(async (file) => {
       if (isMaxFileSizeExceeded({ fileSize: file?.size, maxFileSize })) {
         addToast({
-          title: locale?.maxSizeExceededError
+          title: locale?.atoms?.uploader?.maxSizeExceededError
             .replace("MAX_FILE_SIZE", (maxFileSize / 1024 || 0)?.toString())
             .replace(
               "UPLOADED_FILE_SIZE",
@@ -90,7 +91,7 @@ export async function validateUploadedFiles({
         isFileDuplicated({ fileName: file?.name, files })
       ) {
         addToast({
-          title: locale?.duplicatesDenied,
+          title: locale?.atoms?.uploader?.duplicatesDenied,
         });
         isInValid = true;
       }
@@ -113,7 +114,7 @@ export async function refineUploadedFiles({
   setFiles,
 }: {
   uploadedFiles: (File | undefined)[];
-  locale?: Record<string, string> | undefined;
+  locale?: Locale;
   allowedTypes: string[];
   isMulti: boolean;
   setFiles: Dispatch<SetStateAction<FileObject[]>>;
@@ -124,7 +125,7 @@ export async function refineUploadedFiles({
       const fileType = mapFileType(uploadedFile?.type);
       if (!fileType) {
         addToast({
-          title: `${locale?.errorUploadedTypes} ${allowedTypes.join(", ")}`,
+          title: `${locale?.atoms?.uploader?.errorUploadedTypes} ${allowedTypes.join(", ")}`,
         });
         return;
       }
