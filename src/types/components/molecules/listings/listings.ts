@@ -1,13 +1,29 @@
-import type { SharedComponentProps } from "@/types";
+import type {
+  ItemCardAction,
+  ItemCardProps,
+  SharedComponentProps,
+} from "@/types";
 
 export type ListingsClassnames = {
   base?: string;
+  item?: string;
+  pagination?: string;
 };
 
-export type ListingsVariant = "default";
+export type ListingsLayout = "grid" | "list" | "carousel";
 
-export type ListingsProps<ListingType> = SharedComponentProps & {
+export type ListingsProps = SharedComponentProps & {
   classNames?: ListingsClassnames;
-  variant?: ListingsVariant;
-  items: ListingType[];
+  layout?: ListingsLayout;
+  items: ItemCardProps[];
+  isLoading?: boolean;
+  actions?: ItemCardAction[];
+  onActionClick?: (key: string) => void;
+  pagination?: {
+    page: number;
+    setPage: (page: number) => void;
+    pageSize: number;
+    totalItemsCount: number;
+    pagesCount: number;
+  };
 };
