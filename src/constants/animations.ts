@@ -1,9 +1,8 @@
+/* eslint-disable no-empty-pattern */
 import { ItemCardHoverEffect } from "@/types";
 import { MotionProps } from "framer-motion";
 
-export const getCardMotion = ({
-  hoverEffect,
-}: {
+export const getCardMotion = ({}: {
   hoverEffect: ItemCardHoverEffect;
 }): MotionProps => ({
   initial: { opacity: 0, y: 12 },
