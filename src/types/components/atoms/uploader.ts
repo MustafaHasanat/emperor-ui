@@ -1,5 +1,5 @@
 import type { SharedComponentProps } from "@/types";
-import { ModalProps } from "@heroui/react";
+import { ModalProps } from "@heroui/modal";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type UploaderProps = SharedComponentProps &

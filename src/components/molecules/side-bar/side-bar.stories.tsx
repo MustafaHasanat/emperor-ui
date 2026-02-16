@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Brand, SideBar } from "@/components";
 import { getStorybookDecorators } from "@/utils";
 import { MenuIcon } from "lucide-react";
-import { useDisclosure } from "@heroui/react";
+import { useDisclosure } from "@heroui/modal";
 import { MOCK_HEADER_ACTIONS, MOCK_HEADER_ITEMS } from "@/mocks";
 import { SideBarProps } from "@/types";
 

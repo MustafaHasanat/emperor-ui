@@ -5,7 +5,7 @@ import type {
 } from "@/types";
 import { useMemo, useState } from "react";
 import { UploaderContext } from "@/context";
-import { useDisclosure } from "@heroui/react";
+import { useDisclosure } from "@heroui/modal";
 
 export function UploaderProvider({
   children,

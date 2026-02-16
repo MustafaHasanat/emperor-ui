@@ -1,4 +1,4 @@
-import { cn } from "@heroui/react";
+import { cn } from "@/utils";
 import { FooterProps } from "@/types";
 import { copyRightsClasses } from "./styles";
 

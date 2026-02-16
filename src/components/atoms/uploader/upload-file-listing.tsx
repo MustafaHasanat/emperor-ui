@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, cn } from "@heroui/react";
+import { Button } from "@heroui/button";
+import { cn } from "@/utils";
 import { useUploaderContext } from "@/hooks";
 import { Eye, Trash2 } from "lucide-react";
 

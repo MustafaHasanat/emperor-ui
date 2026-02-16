@@ -1,7 +1,9 @@
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import { cn } from "@/utils";
-import { Button, Divider, ScrollShadow } from "@heroui/react";
+import { Button } from "@heroui/button";
+import { Divider } from "@heroui/divider";
+import { ScrollShadow } from "@heroui/scroll-shadow";
 import { CompactSideBarProps } from "@/types";
 
 const CompactSideBarContent = ({

@@ -1,6 +1,6 @@
 "use client";
 
-import { addToast } from "@heroui/react";
+import { addToast } from "@heroui/toast";
 import { FileObject, UseUploadFileProps, UseUploadFileReturn } from "@/types";
 import { useState } from "react";
 import { useEmperorUI } from "@/hooks";

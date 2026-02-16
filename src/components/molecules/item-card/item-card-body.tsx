@@ -8,7 +8,7 @@ import {
   itemPriceClasses,
   itemTitleClasses,
 } from "./styles";
-import { CardBody } from "@heroui/react";
+import { CardBody } from "@heroui/card";
 import { ItemActionsDropdown } from "./item-actions-dropdown";
 
 export function ItemCardBody({

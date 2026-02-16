@@ -1,15 +1,15 @@
 import { useEmperorUI } from "@/hooks";
 import { useState } from "react";
 import {
-  Button,
   Drawer,
   DrawerHeader,
   DrawerBody,
   DrawerContent,
-  ScrollShadow,
-  Divider,
   DrawerFooter,
-} from "@heroui/react";
+} from "@heroui/drawer";
+import { Button } from "@heroui/button";
+import { ScrollShadow } from "@heroui/scroll-shadow";
+import { Divider } from "@heroui/divider";
 import { SideBarProps } from "@/types";
 import { cn } from "@/utils";
 import { sideBarItemClasses, sideBarItemStyles } from "./styles";
@@ -29,9 +29,6 @@ export const SideBarDrawer = ({
   const { content, ...restTriggerProps } = triggerProps || {};
 
   const dir = config?.interLocalization?.dir;
-  const backgroundColor = config?.theme?.colors?.background;
-  const primaryColor = config?.theme?.colors?.primary;
-  const foregroundColor = config?.theme?.colors?.foreground;
 
   const isRTL = dir === "rtl";
 
@@ -56,10 +53,7 @@ export const SideBarDrawer = ({
         dir={dir}
         className="p-0"
       >
-        <DrawerContent
-          className="p-0"
-          style={{ backgroundColor, color: foregroundColor }}
-        >
+        <DrawerContent className="p-0">
           <DrawerHeader className={cn("text-xl font-bold", classNames?.title)}>
             {header}
           </DrawerHeader>
@@ -76,8 +70,6 @@ export const SideBarDrawer = ({
                   key={href}
                   data-slot="emperor-side-bar-item"
                   style={sideBarItemStyles({
-                    foregroundColor,
-                    primaryColor,
                     isHovered: hoveredItem === id,
                     variant,
                   })}
@@ -97,10 +89,7 @@ export const SideBarDrawer = ({
 
           {actions && actions?.length > 0 && (
             <>
-              <Divider
-                className="m-auto w-11/12"
-                style={{ backgroundColor: foregroundColor + "20" }}
-              />
+              <Divider className="m-auto w-11/12" />
 
               <DrawerFooter className={cn(classNames?.actionsWrapper)}>
                 {actions?.map(({ key, label, ...props }) => (

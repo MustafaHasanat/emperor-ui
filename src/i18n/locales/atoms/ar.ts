@@ -1,4 +1,7 @@
 export const atomsAr = {
+  colorPicker: {
+    invalidColorFormat: "يرجى إدخال لون صالح (مثال: #000000 أو #fff)",
+  },
   uploader: {
     dropHere: "أسقط الملف هنا",
     selectFile: "حدد ملفًا أو اسحبه وأفلته هنا",

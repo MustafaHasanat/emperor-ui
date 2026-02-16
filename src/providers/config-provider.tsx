@@ -20,14 +20,6 @@ export function ConfigProvider({
         ...defaultEmperorUIConfig?.layout,
         ...config?.layout,
       },
-      theme: {
-        ...defaultEmperorUIConfig?.theme,
-        ...config?.theme,
-        colors: {
-          ...defaultEmperorUIConfig?.theme?.colors,
-          ...config?.theme?.colors,
-        },
-      },
       interLocalization: {
         ...defaultEmperorUIConfig?.interLocalization,
         ...config?.interLocalization,

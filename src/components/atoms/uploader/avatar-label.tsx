@@ -1,7 +1,9 @@
 "use client";
 
 import { Placeholders } from "@/enums";
-import { Avatar, Spinner, cn } from "@heroui/react";
+import { Avatar } from "@heroui/avatar";
+import { Spinner } from "@heroui/spinner";
+import { cn } from "@/utils";
 import { useEmperorUI, useUploaderContext } from "@/hooks";
 import { useState } from "react";
 

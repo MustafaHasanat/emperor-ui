@@ -4,7 +4,7 @@ import { VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Row } from "@/components";
 import { brandStyles } from "./styles";
-import { Image } from "@heroui/react";
+import { Image } from "@heroui/image";
 
 export const Brand = forwardRef<
   HTMLElement,

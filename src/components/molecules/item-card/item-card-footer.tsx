@@ -3,7 +3,8 @@
 import type { ItemCardProps } from "@/types";
 import { cn } from "@/utils";
 import { itemFooterClasses, itemChipsClasses } from "./styles";
-import { CardFooter, Chip } from "@heroui/react";
+import { CardFooter } from "@heroui/card";
+import { Chip } from "@heroui/chip";
 
 export function ItemCardFooter({
   item,

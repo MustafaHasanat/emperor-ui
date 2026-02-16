@@ -7,7 +7,7 @@ import {
   listingsPaginationClasses,
   listingsStyles,
 } from "./styles";
-import { Pagination } from "@heroui/react";
+import { Pagination } from "@heroui/pagination";
 import { motion } from "framer-motion";
 
 export function Listings({

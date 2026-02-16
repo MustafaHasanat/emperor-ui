@@ -1,10 +1,10 @@
 "use client";
 
-import { CardHeader } from "@heroui/react";
+import { CardHeader } from "@heroui/card";
 import { cn } from "@/utils";
 import { itemHeaderClasses } from "./styles";
 import { itemImageWrapperClasses } from "./styles";
-import { Image } from "@heroui/react";
+import { Image } from "@heroui/image";
 import { ItemBanner } from "@/components";
 import { ItemActionsDropdown } from "./item-actions-dropdown";
 import type { ItemCardProps } from "@/types";

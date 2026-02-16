@@ -6,7 +6,7 @@ import type { MockItemType } from "@/mocks";
 import { useMemo, useState } from "react";
 import { useEffect } from "react";
 import { ListingsProps } from "@/types";
-import { usePagination } from "@heroui/react";
+import { usePagination } from "@heroui/pagination";
 
 const meta: Meta<typeof Listings> = {
   title: "Organisms/Listings/List",

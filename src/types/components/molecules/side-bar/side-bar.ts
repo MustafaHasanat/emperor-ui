@@ -1,4 +1,4 @@
-import { ButtonProps } from "@heroui/react";
+import { ButtonProps } from "@heroui/button";
 import type { NavigationItem, SharedComponentProps } from "@/types";
 import type { ReactNode } from "react";
 

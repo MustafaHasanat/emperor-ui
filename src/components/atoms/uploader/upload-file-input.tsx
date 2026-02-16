@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@heroui/react";
+import { cn } from "@/utils";
 import { useUploaderContext } from "@/hooks";
 import { fileTypesMapping } from "@/constants";
 

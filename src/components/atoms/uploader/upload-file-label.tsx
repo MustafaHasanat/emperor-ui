@@ -1,6 +1,7 @@
 "use client";
 
-import { Spinner, cn } from "@heroui/react";
+import { Spinner } from "@heroui/spinner";
+import { cn } from "@/utils";
 import { useEmperorUI, useUploaderContext } from "@/hooks";
 import { UploadCloud } from "lucide-react";
 import { useState } from "react";

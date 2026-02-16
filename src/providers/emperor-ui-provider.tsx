@@ -1,7 +1,8 @@
 import { ConfigProviderProps } from "@/types";
 import { ConfigProvider, NavigationProvider } from "@/providers";
-import { HeroUIProvider, ToastProvider } from "@heroui/react";
-import { Fragment } from "react";
+import { HeroUIProvider } from "@heroui/system";
+import { ToastProvider } from "@heroui/toast";
+import { ThemeProvider } from "next-themes";
 
 type EmperorUIProviderProps = ConfigProviderProps & {};
 
@@ -13,10 +14,20 @@ export function EmperorUIProvider({
     <ConfigProvider {...props}>
       <HeroUIProvider>
         <NavigationProvider>
-          <Fragment>
-            <ToastProvider {...props?.config?.toast} />
+          <ThemeProvider>
+            <ToastProvider
+              placement="top-center"
+              toastProps={{
+                radius: "lg",
+                size: "lg",
+                color: "primary",
+                variant: "flat",
+                timeout: 4000,
+              }}
+              {...props?.config?.toast}
+            />
             {children}
-          </Fragment>
+          </ThemeProvider>
         </NavigationProvider>
       </HeroUIProvider>
     </ConfigProvider>

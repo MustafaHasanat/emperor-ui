@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Uploader } from "@/components";
 import { getStorybookDecorators } from "@/utils";
 import { useUploader } from "@/hooks";
-import { useDisclosure } from "@heroui/react";
+import { useDisclosure } from "@heroui/modal";
 import { LangKey } from "@/i18n";
 
 const meta: Meta<typeof Uploader> = {

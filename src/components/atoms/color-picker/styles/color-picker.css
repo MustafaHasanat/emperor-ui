@@ -1,0 +1,23 @@
+/* Rounded corners and compact size for native color input swatch */
+.color-swatch {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  cursor: pointer;
+}
+
+.color-swatch::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 0.375rem;
+}
+
+.color-swatch::-webkit-color-swatch {
+  border: none;
+  border-radius: 0.375rem;
+}
+
+.color-swatch::-moz-color-swatch {
+  border: none;
+  border-radius: 0.375rem;
+}

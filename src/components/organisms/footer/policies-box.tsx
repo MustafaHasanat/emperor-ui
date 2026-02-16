@@ -1,4 +1,5 @@
-import { cn, Link } from "@heroui/react";
+import { cn } from "@/utils";
+import { Link } from "@heroui/link";
 import { FooterProps } from "@/types";
 import { policiesClasses } from "./styles";
 

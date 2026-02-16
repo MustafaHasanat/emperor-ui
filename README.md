@@ -12,21 +12,6 @@ Each one of them has props to control every aspect pf the component, with enabli
 
 ## Components
 
-### Item Card
-
-- Image
-- Title
-- Subtitle (for description)
-- Price
-- Drop-down with actions and a dots-icon for opening it
-
-### Listings
-
-- Listing any type of components
-- Pagination or infinite scrolling
-- Specifying the page size
-- View controller: list, grid, carousel (swiper)
-
 ### Details page
 
 - Breadcrumbs

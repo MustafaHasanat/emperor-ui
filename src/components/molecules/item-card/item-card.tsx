@@ -2,7 +2,7 @@
 
 import type { ItemCardOrientation, ItemCardProps } from "@/types";
 import { cn } from "@/utils";
-import { Card } from "@heroui/react";
+import { Card } from "@heroui/card";
 import { motion } from "framer-motion";
 import { itemMainWrapperClasses, itemCardMotionClasses } from "./styles";
 import { getCardMotion } from "@/constants";

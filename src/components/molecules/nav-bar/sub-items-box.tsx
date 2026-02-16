@@ -1,4 +1,5 @@
-import { cn, Link } from "@heroui/react";
+import { cn } from "@/utils";
+import { Link } from "@heroui/link";
 import { useNavigation } from "@/hooks";
 import { SubItemsBoxProps } from "@/types";
 

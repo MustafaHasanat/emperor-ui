@@ -5,7 +5,7 @@ import { getListings, MOCK_LISTINGS } from "@/mocks";
 import type { MockItemType } from "@/mocks";
 import { useMemo, useState } from "react";
 import { useEffect } from "react";
-import { usePagination } from "@heroui/react";
+import { usePagination } from "@heroui/pagination";
 
 const meta: Meta<typeof Listings> = {
   title: "Organisms/Listings/Grid",

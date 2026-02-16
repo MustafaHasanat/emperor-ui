@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
-import { HeroUIProviderProps } from "@heroui/react";
-import { EmperorUITheme, EmperorUIInterLocalization } from "@/types";
+import { EmperorUIInterLocalization } from "@/types";
+import { ToastProps } from "@heroui/toast";
 
 export type ConfigContextState = {
   config: EmperorUIConfig;
@@ -16,8 +16,7 @@ export type EmperorUILayout = {
 };
 
 export type EmperorUIConfig = {
-  theme?: Partial<EmperorUITheme>;
   layout?: Partial<EmperorUILayout>;
   interLocalization?: Partial<EmperorUIInterLocalization>;
-  toast?: HeroUIProviderProps;
+  toast?: ToastProps;
 };

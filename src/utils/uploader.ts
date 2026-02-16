@@ -5,7 +5,7 @@ import {
   ONE_MEGABYTE,
 } from "@/constants";
 import { FileObject, FileType } from "@/types";
-import { addToast } from "@heroui/react";
+import { addToast } from "@heroui/toast";
 import { compressImage } from "@/utils";
 import { Dispatch, SetStateAction } from "react";
 import { Locale } from "@/i18n";

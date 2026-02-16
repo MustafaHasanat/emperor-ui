@@ -9,6 +9,7 @@ export type EmperorUILocales = Record<
   Partial<{
     atoms?: {
       uploader?: Partial<Locale["atoms"]["uploader"]>;
+      colorPicker?: Partial<Locale["atoms"]["colorPicker"]>;
     };
   }>
 >;

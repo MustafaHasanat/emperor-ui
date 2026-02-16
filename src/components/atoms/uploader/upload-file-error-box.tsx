@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@heroui/react";
+import { cn } from "@/utils";
 import { useEmperorUI, useUploaderContext } from "@/hooks";
 import { useMemo } from "react";
 

@@ -1,7 +1,8 @@
 import type { SharedComponentProps } from "@/types";
 import { ReactNode } from "react";
 import { Variants } from "framer-motion";
-import { ChipProps, DropdownItemProps } from "@heroui/react";
+import { ChipProps } from "@heroui/chip";
+import { DropdownItemProps } from "@heroui/dropdown";
 
 export type ItemCardClassnames = {
   base?: string;

@@ -9,7 +9,7 @@ import {
   SocialLinksBox,
   CopyRightsBox,
 } from "@/components";
-import { Divider } from "@heroui/react";
+import { Divider } from "@heroui/divider";
 
 export const Footer = forwardRef<
   HTMLElement,

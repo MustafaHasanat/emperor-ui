@@ -11,7 +11,7 @@ import {
   contacts,
   socialLinks,
 } from "@/constants";
-import { Button } from "@heroui/react";
+import { Button } from "@heroui/button";
 
 const meta: Meta<typeof Footer> = {
   title: "Organisms/Footer",

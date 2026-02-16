@@ -1,4 +1,7 @@
 export const atomsEn = {
+  colorPicker: {
+    invalidColorFormat: "Please enter a valid color (e.g., #000000 or #fff)",
+  },
   uploader: {
     dropHere: "Drop file here",
     selectFile: "Select a file or drag and drop here",

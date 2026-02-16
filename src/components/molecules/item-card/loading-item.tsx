@@ -1,13 +1,8 @@
 "use client";
 
 import { cn } from "@/utils";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Skeleton,
-} from "@heroui/react";
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Skeleton } from "@heroui/skeleton";
 import { motion } from "framer-motion";
 import {
   itemMainWrapperClasses,

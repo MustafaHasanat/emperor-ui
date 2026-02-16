@@ -1,6 +1,7 @@
 "use client";
 
-import { Image, Modal, ModalBody, ModalContent } from "@heroui/react";
+import { Image } from "@heroui/image";
+import { Modal, ModalBody, ModalContent } from "@heroui/modal";
 import { useEmperorUI, useUploaderContext } from "@/hooks";
 
 export function ViewImageModal() {

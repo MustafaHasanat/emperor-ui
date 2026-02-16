@@ -2,13 +2,13 @@
 
 import { ItemCardProps } from "@/types";
 import { cn } from "@/utils";
+import { Button } from "@heroui/button";
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Button,
-} from "@heroui/react";
+} from "@heroui/dropdown";
 import { EllipsisVertical } from "lucide-react";
 
 export function ItemActionsDropdown({
@@ -28,7 +28,7 @@ export function ItemActionsDropdown({
           radius="full"
           className={cn(
             "absolute right-2 top-2 z-10 size-7 min-w-7 backdrop-blur-lg",
-            "border-1 border-default-300",
+            "border border-default-300",
             classNames?.dropdown,
           )}
         >
