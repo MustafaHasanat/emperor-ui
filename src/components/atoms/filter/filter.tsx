@@ -48,6 +48,7 @@ export function Filter({
     autocomplete: (
       <AutocompleteFilter
         autocompleteProps={autocompleteProps}
+        options={options}
         {...sharedProps}
         {...props}
       />
@@ -66,6 +67,7 @@ export function Filter({
     checkboxGroup: (
       <CheckboxGroupFilter
         checkboxGroupProps={checkboxGroupProps}
+        options={options}
         {...sharedProps}
         {...props}
       />
@@ -84,7 +86,6 @@ export function Filter({
         className,
         props?.classNames?.base,
       )}
-      {...props}
     >
       {components[type]}
     </div>

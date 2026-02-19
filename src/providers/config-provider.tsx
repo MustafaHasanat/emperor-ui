@@ -40,6 +40,14 @@ export function ConfigProvider({
           }),
         },
       },
+      theme: {
+        ...defaultEmperorUIConfig?.theme,
+        ...config?.theme,
+        components: {
+          ...defaultEmperorUIConfig?.theme?.components,
+          ...config?.theme?.components,
+        },
+      },
     };
 
     return {

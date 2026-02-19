@@ -9,7 +9,8 @@ export function PresetColorPicker({
   className,
   classNames,
   value = "#000000",
-  onSelectionChange,
+  onChange,
+  defaultValue,
   inputType,
   presets = [],
   ...props
@@ -30,8 +31,9 @@ export function PresetColorPicker({
         trigger: "min-w-52",
         ...classNames,
       }}
-      value={value}
-      onSelectionChange={onSelectionChange}
+      selectedKeys={value ? [value] : undefined}
+      defaultSelectedKeys={defaultValue ? [defaultValue] : undefined}
+      onSelectionChange={(value) => onChange?.(value?.currentKey ?? "")}
       endContent={<CopyButton value={value} />}
       renderValue={() => {
         return (

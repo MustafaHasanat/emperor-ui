@@ -16,4 +16,44 @@ export const defaultEmperorUIConfig: EmperorUIConfig = {
       ar,
     },
   },
+  theme: {
+    components: {
+      input: {
+        variant: "faded",
+        labelPlacement: "outside",
+        size: "sm",
+      },
+      textarea: {
+        variant: "faded",
+        labelPlacement: "outside",
+        size: "sm",
+      },
+      button: {
+        variant: "faded",
+        size: "sm",
+      },
+      select: {
+        variant: "faded",
+        labelPlacement: "outside",
+        placeholder: "Select an option",
+        size: "sm",
+      },
+      selectItem: {
+        variant: "faded",
+      },
+      autocomplete: {
+        variant: "faded",
+        labelPlacement: "outside",
+        size: "sm",
+      },
+      autocompleteItem: {
+        variant: "faded",
+      },
+      datePicker: {
+        variant: "faded",
+        labelPlacement: "outside",
+        size: "sm",
+      },
+    },
+  },
 };

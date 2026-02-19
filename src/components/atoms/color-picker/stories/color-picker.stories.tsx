@@ -24,9 +24,21 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (args) => {
+  render: () => {
     const [value, setValue] = useState("#000000");
-    return <ColorPicker {...args} value={value} onValueChange={setValue} />;
+
+    return (
+      <section className="flex flex-col gap-4">
+        <ColorPicker
+          inputType="free"
+          value={value}
+          onChange={setValue}
+          defaultValue="#000000"
+        />
+
+        <p className="text-xs text-gray-500">Value: {value}</p>
+      </section>
+    );
   },
 };
 
@@ -35,15 +47,17 @@ export const WithPresets: Story = {
     const [value, setValue] = useState("#000000");
 
     return (
-      <ColorPicker
-        inputType="preset"
-        presets={["#000000", "#FFFFFF", "#FF0000", "#00FF00", "#0000FF"]}
-        value={value}
-        onSelectionChange={(keys) => {
-          setValue(keys?.currentKey ?? "");
-        }}
-        defaultSelectedKeys={["#000000"]}
-      />
+      <section className="flex flex-col gap-4">
+        <ColorPicker
+          inputType="preset"
+          presets={["#000000", "#FFFFFF", "#FF0000", "#00FF00", "#0000FF"]}
+          value={value}
+          onChange={setValue}
+          defaultValue="#000000"
+        />
+
+        <p className="text-xs text-gray-500">Value: {value}</p>
+      </section>
     );
   },
 };

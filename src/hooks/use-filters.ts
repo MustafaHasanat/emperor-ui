@@ -6,7 +6,7 @@ import { useSearchParamsHandler } from "@/hooks";
 export function useFilters<
   FiltersType extends Record<string, string | number | boolean>,
 >() {
-  const { allParams } = useSearchParamsHandler();
+  const { allParams, clearParams } = useSearchParamsHandler();
 
   const filters = useMemo(() => {
     if (!Object.keys(allParams).length) {
@@ -16,5 +16,5 @@ export function useFilters<
     return allParams as unknown as FiltersType;
   }, [allParams]);
 
-  return { filters };
+  return { filters, clearFilters: clearParams };
 }

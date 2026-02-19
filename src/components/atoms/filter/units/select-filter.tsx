@@ -4,16 +4,24 @@ import { FilterProps } from "@/types";
 import { filterClasses } from "@/components";
 import { Select, SelectItem } from "@heroui/select";
 import { cn } from "@/utils";
-import { useSearchParamsHandler } from "@/hooks";
+import { useEmperorUI, useSearchParamsHandler } from "@/hooks";
 
 export function SelectFilter({
   classNames,
   selectProps,
+  selectItemProps,
   paramKey,
   options,
-  ...props
-}: Pick<FilterProps, "classNames" | "selectProps" | "paramKey" | "options">) {
+}: Pick<
+  FilterProps,
+  "classNames" | "selectProps" | "selectItemProps" | "paramKey" | "options"
+>) {
   const { getParam, setParams } = useSearchParamsHandler();
+  const { config } = useEmperorUI();
+
+  const theme = config?.theme?.components?.select;
+  const themeItem = config?.theme?.components?.selectItem;
+
   const key = paramKey ?? "select";
   const value = getParam(key);
 
@@ -22,9 +30,8 @@ export function SelectFilter({
 
   return (
     <Select
-      labelPlacement="outside-top"
-      variant="faded"
-      radius="sm"
+      {...theme}
+      {...selectProps}
       selectedKeys={value ? [value] : []}
       onSelectionChange={(keys) => {
         const selectedKey = Array.from(keys)[0];
@@ -32,17 +39,18 @@ export function SelectFilter({
           params: { [key]: selectedKey ? String(selectedKey) : undefined },
         });
       }}
-      {...selectProps}
-      {...props}
       className={cn(filterClasses({ type: "select" }), classNames?.field)}
       classNames={{
         trigger: "min-w-40",
         label: "font-semibold",
+        ...theme?.classNames,
         ...selectProps?.classNames,
       }}
     >
       {options.map((option) => (
-        <SelectItem key={option.key}>{option.label}</SelectItem>
+        <SelectItem key={option.key} {...themeItem} {...selectItemProps}>
+          {option.label}
+        </SelectItem>
       ))}
     </Select>
   );

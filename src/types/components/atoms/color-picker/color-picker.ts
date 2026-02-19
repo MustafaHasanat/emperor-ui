@@ -5,8 +5,17 @@ export type ColorPickerInputType = "free" | "preset";
 
 export type ColorPickerProps = Omit<
   InputProps & SelectProps,
-  "onChange" | "children"
+  | "onChange"
+  | "onValueChange"
+  | "onSelectionChange"
+  | "children"
+  | "selectedKeys"
+  | "defaultSelectedKeys"
+  | "value"
 > & {
   inputType: ColorPickerInputType;
   presets?: string[];
+  onChange?: (value: string) => void;
+  value?: string;
+  defaultValue?: string;
 };

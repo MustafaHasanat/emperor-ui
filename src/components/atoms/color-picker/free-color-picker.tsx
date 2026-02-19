@@ -7,13 +7,12 @@ import type { ColorPickerProps } from "@/types";
 import { CopyButton } from "@/components";
 import { useEmperorUI } from "@/hooks";
 
-const HEX_COLOR_REGEX = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/;
-
 export function FreeColorPicker({
   className,
   classNames,
   value = "#000000",
-  onValueChange,
+  onChange,
+  defaultValue,
   inputType = "free",
   ...props
 }: ColorPickerProps) {
@@ -26,12 +25,10 @@ export function FreeColorPicker({
 
   const isInvalid = useMemo(() => {
     if (!value) return true;
-    return HEX_COLOR_REGEX.test(value);
-  }, [value]);
+    const HEX_COLOR_REGEX = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/;
 
-  const handleValueChange = (newValue: string) => {
-    onValueChange?.(newValue);
-  };
+    return !HEX_COLOR_REGEX.test(value);
+  }, [value]);
 
   return (
     <Input
@@ -39,8 +36,9 @@ export function FreeColorPicker({
       variant="faded"
       className={cn(className)}
       classNames={{ label: "font-bold", input: "h-12", ...classNames }}
+      defaultValue={defaultValue}
       value={value}
-      onValueChange={handleValueChange}
+      onValueChange={onChange}
       isInvalid={isInvalid}
       errorMessage={isInvalid ? errorMessage : undefined}
       endContent={<CopyButton value={value} />}
@@ -50,7 +48,7 @@ export function FreeColorPicker({
           className="color-swatch"
           value={value}
           onChange={(e) => {
-            handleValueChange(e.target.value);
+            onChange?.(e.target.value as string);
           }}
         />
       }

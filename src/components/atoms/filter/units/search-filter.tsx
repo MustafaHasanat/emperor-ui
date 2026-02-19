@@ -7,14 +7,17 @@ import { cn } from "@/utils";
 import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 import { Search } from "lucide-react";
-import { useSearchParamsHandler } from "@/hooks";
+import { useEmperorUI, useSearchParamsHandler } from "@/hooks";
 
 export function SearchFilter({
   classNames,
   searchProps,
   paramKey,
-  ...props
 }: Pick<FilterProps, "classNames" | "searchProps" | "paramKey">) {
+  const { config } = useEmperorUI();
+
+  const theme = config?.theme?.components?.input;
+
   const [searchValue, setSearchValue] = useState(
     searchProps?.defaultValue || "",
   );
@@ -33,18 +36,16 @@ export function SearchFilter({
 
   return (
     <Input
-      labelPlacement="outside-top"
-      variant="faded"
-      radius="sm"
-      endContent={<Search className="size-4" />}
+      {...theme}
       {...searchProps}
-      {...props}
+      endContent={<Search className="size-4" />}
       value={searchValue}
       onValueChange={setSearchValue}
       className={cn(filterClasses({ type: "search" }), classNames?.field)}
       classNames={{
         input: "min-w-40",
         label: "font-semibold",
+        ...theme?.classNames,
         ...searchProps?.classNames,
       }}
     />

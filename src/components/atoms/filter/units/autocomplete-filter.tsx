@@ -2,25 +2,41 @@
 
 import { FilterProps } from "@/types";
 import { filterClasses } from "@/components";
-import { Autocomplete } from "@heroui/autocomplete";
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 import { cn } from "@/utils";
-import { useSearchParamsHandler } from "@/hooks";
+import { useEmperorUI, useSearchParamsHandler } from "@/hooks";
 
 export function AutocompleteFilter({
   classNames,
   autocompleteProps,
+  autocompleteItemProps,
   paramKey,
-  ...props
-}: Pick<FilterProps, "classNames" | "autocompleteProps" | "paramKey">) {
-  const { getParam, setParams } = useSearchParamsHandler();
+  options,
+}: Pick<
+  FilterProps,
+  | "classNames"
+  | "autocompleteProps"
+  | "autocompleteItemProps"
+  | "paramKey"
+  | "options"
+>) {
+  const { config } = useEmperorUI();
 
+  const theme = config?.theme?.components?.autocomplete;
+  const themeItem = config?.theme?.components?.autocompleteItem;
+
+  const { getParam, setParams } = useSearchParamsHandler();
   const value = getParam(paramKey);
+
+  if (!options?.length)
+    throw new Error(
+      "Filter with type 'autocomplete' must have 'options' property.",
+    );
 
   return (
     <Autocomplete
-      labelPlacement="outside-top"
-      variant="faded"
-      radius="sm"
+      {...theme}
+      {...autocompleteProps}
       selectedKey={value || null}
       onSelectionChange={(selectedKey) =>
         setParams({
@@ -29,11 +45,22 @@ export function AutocompleteFilter({
           },
         })
       }
-      {...autocompleteProps}
-      {...props}
       className={cn(filterClasses({ type: "autocomplete" }), classNames?.field)}
+      classNames={{
+        base: "min-w-40",
+        ...theme?.classNames,
+        ...autocompleteProps?.classNames,
+      }}
     >
-      <div />
+      {(options || [])?.map((option) => (
+        <AutocompleteItem
+          key={option.key}
+          {...themeItem}
+          {...autocompleteItemProps}
+        >
+          {option.label}
+        </AutocompleteItem>
+      ))}
     </Autocomplete>
   );
 }

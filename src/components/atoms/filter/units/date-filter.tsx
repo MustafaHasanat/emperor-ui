@@ -4,47 +4,43 @@ import { FilterProps } from "@/types";
 import { filterClasses } from "@/components";
 import { DatePicker } from "@heroui/date-picker";
 import { cn } from "@/utils";
-import { useSearchParamsHandler } from "@/hooks";
-import { parseDate, type DateValue } from "@internationalized/date";
-import { useMemo } from "react";
+import { parseDate } from "@internationalized/date";
+import { useEmperorUI, useSearchParamsHandler } from "@/hooks";
 
 export function DateFilter({
   classNames,
   dateProps,
   paramKey,
-  ...props
 }: Pick<FilterProps, "classNames" | "dateProps" | "paramKey">) {
   const { getParam, setParams } = useSearchParamsHandler();
+  const { config } = useEmperorUI();
+
+  const theme = config?.theme?.components?.datePicker;
+
   const valueStr = getParam(paramKey);
-
-  const value = useMemo(() => {
-    if (!valueStr) return null;
-
-    try {
-      return parseDate(valueStr);
-    } catch {
-      return null;
-    }
-  }, [valueStr]);
+  const value =
+    valueStr && /^\d{4}-\d{2}-\d{2}$/.test(valueStr)
+      ? parseDate(valueStr)
+      : null;
 
   return (
     <DatePicker
-      labelPlacement="outside-top"
-      variant="faded"
-      radius="sm"
+      {...theme}
+      {...dateProps}
       value={value}
-      onChange={(date: DateValue | null) =>
+      onChange={(date) =>
         setParams({
           params: {
-            [paramKey]: date
-              ? `${date.year}-${String(date.month).padStart(2, "0")}-${String(date.day).padStart(2, "0")}`
-              : undefined,
+            [paramKey]: date ? String(date) : undefined,
           },
         })
       }
-      {...dateProps}
-      {...props}
       className={cn(filterClasses({ type: "date" }), classNames?.field)}
+      classNames={{
+        label: "font-semibold",
+        ...theme?.classNames,
+        ...dateProps?.classNames,
+      }}
     />
   );
 }
