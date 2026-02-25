@@ -9,7 +9,7 @@ export const atomsEn = {
     selectBtn: "Select file",
     errorUploadingFile: "No file was uploaded",
     maxNumImages: "Maximum number of uploaded images exceeded: ",
-    errorUploadedTypes: "You can only upload files within these types: ",
+    errorUploadedTypes: "The uploaded file type is not allowed.",
     maxSizeExceededError:
       "You can only upload files/images with less than MAX_FILE_SIZE Mega Bytes, you're file's size is UPLOADED_FILE_SIZE Mega Bytes",
     duplicatesDenied:

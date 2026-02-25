@@ -8,9 +8,10 @@ import {
   validateUploadedFiles,
   getAllowedTypes,
   refineUploadedFiles,
+  mergeUploaderLocale,
 } from "@/utils";
 import { ONE_MEGABYTE } from "@/constants";
-import { Locale } from "@/i18n";
+import { Locale, getLocales } from "@/i18n";
 
 export const useUploader = ({
   labelContent,
@@ -24,15 +25,25 @@ export const useUploader = ({
   maxFileSize = ONE_MEGABYTE * 10,
   compressFiles = false,
   onChange = () => {},
+  locales,
 }: UseUploadFileProps): UseUploadFileReturn => {
   const { config } = useEmperorUI();
   const [files, setFiles] = useState<FileObject[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const locales = config?.interLocalization?.locales;
-  const lang = config?.interLocalization?.lang;
+  const configLocales = config?.interLocalization?.locales;
+  const lang =
+    config?.interLocalization?.lang ||
+    config?.interLocalization?.defaultLanguage ||
+    "en";
 
-  const locale = locales?.[lang || "en"] as Locale;
+  const defaultLocale = getLocales(lang);
+  const uploaderLocale = mergeUploaderLocale({
+    defaultUploaderLocale: defaultLocale.atoms.uploader,
+    configUploaderLocale: (configLocales?.[lang] as Locale | undefined)?.atoms
+      ?.uploader,
+    contextUploaderLocale: locales,
+  });
 
   // remove a specific uploaded file
   const handleClearFile = (fileName?: string) => {
@@ -59,7 +70,7 @@ export const useUploader = ({
       (!event?.dataTransfer?.files || !event?.dataTransfer?.files[0])
     ) {
       return addToast({
-        title: locale?.atoms?.uploader?.errorUploadingFile,
+        title: uploaderLocale.errorUploadingFile,
       });
     }
 
@@ -81,7 +92,7 @@ export const useUploader = ({
         files?.length + uploadedFiles?.length > maxCount)
     ) {
       addToast({
-        title: `${locale?.atoms?.uploader?.maxNumImages} ${maxCount}`,
+        title: `${uploaderLocale.maxNumImages} ${maxCount}`,
       });
       return;
     }
@@ -93,7 +104,7 @@ export const useUploader = ({
         ?.every((type) => allowedTypes.includes(type))
     ) {
       addToast({
-        title: `${locale?.atoms?.uploader?.errorUploadedTypes} ${allowedTypes.join(", ")}`,
+        title: uploaderLocale.errorUploadedTypes,
       });
       return;
     }
@@ -106,7 +117,7 @@ export const useUploader = ({
       compressFiles,
       preventDuplicates,
       files,
-      locale,
+      uploaderLocale,
     });
 
     if (isInValid) return;
@@ -116,7 +127,7 @@ export const useUploader = ({
     await Promise.all(
       await refineUploadedFiles({
         uploadedFiles: compressedFiles,
-        locale,
+        uploaderLocale,
         allowedTypes,
         isMulti,
         setFiles,
@@ -148,5 +159,6 @@ export const useUploader = ({
     onInputChange,
     setFiles,
     isLoading,
+    locales,
   };
 };

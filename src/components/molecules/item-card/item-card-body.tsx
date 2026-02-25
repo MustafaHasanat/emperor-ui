@@ -17,9 +17,15 @@ export function ItemCardBody({
   classNames,
   actions,
   onActionClick,
+  actionsViewVariant = "dropdown",
 }: Pick<
   ItemCardProps,
-  "item" | "orientation" | "classNames" | "actions" | "onActionClick"
+  | "item"
+  | "orientation"
+  | "classNames"
+  | "actions"
+  | "onActionClick"
+  | "actionsViewVariant"
 >) {
   return (
     <CardBody
@@ -56,7 +62,7 @@ export function ItemCardBody({
         </p>
       )}
 
-      {orientation === "horizontal" && (
+      {orientation === "horizontal" && actionsViewVariant === "dropdown" && (
         <ItemActionsDropdown
           actions={actions}
           classNames={classNames}

@@ -1,4 +1,8 @@
 export const organismsEn = {
+  deletionConfirmor: {
+    confirm: "Confirm",
+    decline: "Decline",
+  },
   listings: {
     emptyTitle: "No listings found",
     emptyDescription:

@@ -117,6 +117,42 @@ export const WithActions: Story = {
   },
 };
 
+export const WithButtonsActions: Story = {
+  args: {
+    item: {
+      key: String(MOCK_LISTINGS[0]?.id),
+      title: MOCK_LISTINGS[0]?.title,
+      description: MOCK_LISTINGS[0]?.description,
+      image: {
+        src: MOCK_LISTINGS[0]?.image || "",
+        alt: MOCK_LISTINGS[0]?.title || "",
+      },
+    },
+    actions: ITEM_CARD_ACTIONS,
+    actionsViewVariant: "buttons",
+  },
+};
+
+export const WithHoverOverlayActions: Story = {
+  args: {
+    item: {
+      key: String(MOCK_LISTINGS[0]?.id),
+      title: MOCK_LISTINGS[0]?.title,
+      description: MOCK_LISTINGS[0]?.description,
+      image: {
+        src: MOCK_LISTINGS[0]?.image || "",
+        alt: MOCK_LISTINGS[0]?.title || "",
+      },
+    },
+    actions: ITEM_CARD_ACTIONS?.map((action) => ({
+      ...action,
+      variant: "solid",
+      size: "lg",
+    })),
+    actionsViewVariant: "hover-overlay",
+  },
+};
+
 export const WithChips: Story = {
   args: {
     item: {

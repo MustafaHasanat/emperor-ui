@@ -1,10 +1,11 @@
 "use client";
 
 import { Spinner } from "@heroui/spinner";
-import { cn } from "@/utils";
+import { cn, mergeUploaderLocale } from "@/utils";
 import { useEmperorUI, useUploaderContext } from "@/hooks";
 import { UploadCloud } from "lucide-react";
 import { useState } from "react";
+import { getLocales, Locale } from "@/i18n";
 
 export function UploadFileLabel() {
   const { config } = useEmperorUI();
@@ -18,12 +19,22 @@ export function UploadFileLabel() {
     isLoading,
     isMulti,
     files,
+    locales,
   } = useUploaderContext();
 
-  const locales = config?.interLocalization?.locales;
-  const lang = config?.interLocalization?.lang;
+  const configLocales = config?.interLocalization?.locales;
+  const lang =
+    config?.interLocalization?.lang ||
+    config?.interLocalization?.defaultLanguage ||
+    "en";
 
-  const locale = locales?.[lang || "en"];
+  const defaultLocale = getLocales(lang);
+  const uploaderLocale = mergeUploaderLocale({
+    defaultUploaderLocale: defaultLocale.atoms.uploader,
+    configUploaderLocale: (configLocales?.[lang] as Locale | undefined)?.atoms
+      ?.uploader,
+    contextUploaderLocale: locales,
+  });
 
   const handleDrop = (
     event: React.ChangeEvent<HTMLInputElement> &
@@ -38,7 +49,7 @@ export function UploadFileLabel() {
       React.DragEvent<HTMLLabelElement>,
   ) => {
     event.preventDefault();
-    setDraggableMessage(locale?.atoms?.uploader?.dropHere || "");
+    setDraggableMessage(uploaderLocale.dropHere);
   };
 
   const handleDragLeave = () => {
@@ -68,12 +79,8 @@ export function UploadFileLabel() {
         <div className="pointer-events-none flex size-full flex-col items-center justify-center gap-2 rounded-md border border-dashed bg-primary/10 px-2 py-8 text-xs">
           <UploadCloud className="size-10 text-primary" />
 
-          <p className="font-bold">
-            {locale?.atoms?.uploader?.selectFile || ""}
-          </p>
-          <p className="opacity-70">
-            {locale?.atoms?.uploader?.selectionTypes || ""}
-          </p>
+          <p className="font-bold">{uploaderLocale.selectFile}</p>
+          <p className="opacity-70">{uploaderLocale.selectionTypes}</p>
 
           {draggableMessage && (
             <p className="text-sm font-bold">{draggableMessage}</p>

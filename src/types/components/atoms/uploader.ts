@@ -1,6 +1,7 @@
 import type { SharedComponentProps } from "@/types";
 import { ModalProps } from "@heroui/modal";
 import { Dispatch, ReactNode, SetStateAction } from "react";
+import type { Locale } from "@/i18n";
 
 export type UploaderProps = SharedComponentProps &
   UploaderContextState & {
@@ -39,6 +40,7 @@ export type UseUploadFileProps = {
   compressFiles?: boolean;
   preventDuplicates?: boolean;
   onChange?: () => void;
+  locales?: Partial<Locale["atoms"]["uploader"]>;
 };
 
 export type UseUploadFileReturn = {
@@ -53,6 +55,7 @@ export type UseUploadFileReturn = {
   setFiles: Dispatch<SetStateAction<FileObject[]>>;
   handleClearFile: (fileName?: string) => void;
   onInputChange: SharedOnInputChangeType;
+  locales?: Partial<Locale["atoms"]["uploader"]>;
 };
 
 export type UploaderContextState = {
@@ -91,6 +94,7 @@ export type UploaderContextState = {
     input?: string;
     title?: string;
   };
+  locales?: Partial<Locale["atoms"]["uploader"]>;
 };
 
 export type UploaderProviderProps = UploaderContextState & {

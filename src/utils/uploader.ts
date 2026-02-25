@@ -53,14 +53,14 @@ export async function validateUploadedFiles({
   uploadedFiles,
   maxFileSize = ONE_MEGABYTE * 10,
   compressFiles,
-  locale,
+  uploaderLocale,
   preventDuplicates,
   files,
 }: {
   uploadedFiles: File[];
   maxFileSize?: number;
   compressFiles?: boolean;
-  locale?: Locale;
+  uploaderLocale: Locale["atoms"]["uploader"];
   preventDuplicates?: boolean;
   files: FileObject[];
 }) {
@@ -70,7 +70,7 @@ export async function validateUploadedFiles({
     uploadedFiles?.map(async (file) => {
       if (isMaxFileSizeExceeded({ fileSize: file?.size, maxFileSize })) {
         addToast({
-          title: locale?.atoms?.uploader?.maxSizeExceededError
+          title: uploaderLocale.maxSizeExceededError
             .replace("MAX_FILE_SIZE", (maxFileSize / 1024 || 0)?.toString())
             .replace(
               "UPLOADED_FILE_SIZE",
@@ -91,7 +91,7 @@ export async function validateUploadedFiles({
         isFileDuplicated({ fileName: file?.name, files })
       ) {
         addToast({
-          title: locale?.atoms?.uploader?.duplicatesDenied,
+          title: uploaderLocale.duplicatesDenied,
         });
         isInValid = true;
       }
@@ -108,13 +108,13 @@ export async function validateUploadedFiles({
 
 export async function refineUploadedFiles({
   uploadedFiles,
-  locale,
+  uploaderLocale,
   allowedTypes,
   isMulti,
   setFiles,
 }: {
   uploadedFiles: (File | undefined)[];
-  locale?: Locale;
+  uploaderLocale: Locale["atoms"]["uploader"];
   allowedTypes: string[];
   isMulti: boolean;
   setFiles: Dispatch<SetStateAction<FileObject[]>>;
@@ -125,7 +125,7 @@ export async function refineUploadedFiles({
       const fileType = mapFileType(uploadedFile?.type);
       if (!fileType) {
         addToast({
-          title: `${locale?.atoms?.uploader?.errorUploadedTypes} ${allowedTypes.join(", ")}`,
+          title: `${uploaderLocale.errorUploadedTypes} ${allowedTypes.join(", ")}`,
         });
         return;
       }
@@ -147,3 +147,21 @@ export async function refineUploadedFiles({
     }
   });
 }
+
+/**
+ * Merges uploader-specific locales with priority:
+ * 1) context-level overrides, 2) config-level locales, 3) default static locales.
+ */
+export const mergeUploaderLocale = ({
+  defaultUploaderLocale,
+  configUploaderLocale,
+  contextUploaderLocale,
+}: {
+  defaultUploaderLocale: Locale["atoms"]["uploader"];
+  configUploaderLocale?: Locale["atoms"]["uploader"];
+  contextUploaderLocale?: Partial<Locale["atoms"]["uploader"]>;
+}): Locale["atoms"]["uploader"] => ({
+  ...defaultUploaderLocale,
+  ...(configUploaderLocale || {}),
+  ...(contextUploaderLocale || {}),
+});

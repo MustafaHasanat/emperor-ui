@@ -15,9 +15,15 @@ export function ItemCardHeader({
   classNames,
   actions,
   onActionClick,
+  actionsViewVariant = "dropdown",
 }: Pick<
   ItemCardProps,
-  "item" | "orientation" | "classNames" | "actions" | "onActionClick"
+  | "item"
+  | "orientation"
+  | "classNames"
+  | "actions"
+  | "onActionClick"
+  | "actionsViewVariant"
 >) {
   return (
     <CardHeader
@@ -49,7 +55,7 @@ export function ItemCardHeader({
         classNames={classNames}
       />
 
-      {orientation === "vertical" && (
+      {orientation === "vertical" && actionsViewVariant === "dropdown" && (
         <ItemActionsDropdown
           actions={actions}
           classNames={classNames}

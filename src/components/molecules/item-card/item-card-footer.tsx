@@ -5,12 +5,24 @@ import { cn } from "@/utils";
 import { itemFooterClasses, itemChipsClasses } from "./styles";
 import { CardFooter } from "@heroui/card";
 import { Chip } from "@heroui/chip";
+import { ItemActionsButtons } from "./item-actions-buttons";
 
 export function ItemCardFooter({
   item,
   orientation,
   classNames,
-}: Pick<ItemCardProps, "item" | "orientation" | "classNames">) {
+  actions,
+  onActionClick,
+  actionsViewVariant = "dropdown",
+}: Pick<
+  ItemCardProps,
+  | "item"
+  | "orientation"
+  | "classNames"
+  | "actions"
+  | "onActionClick"
+  | "actionsViewVariant"
+>) {
   return (
     <CardFooter
       data-slot="emperor-ui-item-card-footer"
@@ -49,6 +61,15 @@ export function ItemCardFooter({
             ),
           )}
         </menu>
+      )}
+
+      {actionsViewVariant === "buttons" && actions && actions.length > 0 && (
+        <ItemActionsButtons
+          actions={actions}
+          classNames={classNames}
+          onActionClick={onActionClick}
+          className="ml-auto"
+        />
       )}
     </CardFooter>
   );

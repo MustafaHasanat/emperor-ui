@@ -3,6 +3,7 @@ import { Uploader } from "@/components";
 import { getStorybookDecorators } from "@/utils";
 import { useUploader } from "@/hooks";
 import { useDisclosure } from "@heroui/modal";
+import { uploaderLocalesMock } from "@/mocks";
 import { LangKey } from "@/i18n";
 
 const meta: Meta<typeof Uploader> = {
@@ -16,16 +17,6 @@ const meta: Meta<typeof Uploader> = {
     config: {
       layout: {
         withScaffold: false,
-      },
-      interLocalization: {
-        locales: {
-          [LangKey.ENGLISH]: {
-            atoms: {
-              uploader: {},
-            },
-          },
-          [LangKey.ARABIC]: {},
-        },
       },
     },
   }),
@@ -190,5 +181,21 @@ export const WithTitle: Story = {
     });
 
     return <Uploader {...uploadProps} title="Upload your image" />;
+  },
+};
+
+export const WithCustomLocales: Story = {
+  args: {
+    locales: uploaderLocalesMock[LangKey.ENGLISH],
+  },
+  render: (args) => {
+    const uploadProps = useUploader({
+      fileTypes: ["image", "pdf"],
+      labelId: "image",
+      isRequired: true,
+      isMulti: true,
+    });
+
+    return <Uploader {...uploadProps} {...args} />;
   },
 };

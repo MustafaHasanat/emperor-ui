@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { Variants } from "framer-motion";
 import { ChipProps } from "@heroui/chip";
 import { DropdownItemProps } from "@heroui/dropdown";
+import type { ButtonProps } from "@heroui/button";
 
 export type ItemCardClassnames = {
   base?: string;
@@ -19,16 +20,24 @@ export type ItemCardClassnames = {
   description?: string;
   chips?: string;
   chip?: string;
+  actions?: string;
+  action?: string;
 };
 
-export type ItemCardAction = DropdownItemProps & {
-  key: string;
-  label: string;
-};
+export type ItemCardAction = DropdownItemProps &
+  ButtonProps & {
+    key: string;
+    label: string;
+  };
 
 export type ItemCardHoverEffect = "none" | "zoom" | "rotate";
 
 export type ItemCardOrientation = "horizontal" | "vertical";
+
+export type ItemCardActionsViewVariant =
+  | "dropdown"
+  | "buttons"
+  | "hover-overlay";
 
 export type ItemChipProps = ChipProps & {
   label: string;
@@ -56,4 +65,5 @@ export type ItemCardProps = SharedComponentProps & {
   actions?: ItemCardAction[];
   onActionClick?: (key: string) => void;
   orientation?: ItemCardOrientation;
+  actionsViewVariant?: ItemCardActionsViewVariant;
 };

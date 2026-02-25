@@ -3,13 +3,15 @@
 import { Placeholders } from "@/enums";
 import { Avatar } from "@heroui/avatar";
 import { Spinner } from "@heroui/spinner";
-import { cn } from "@/utils";
+import { cn, mergeUploaderLocale } from "@/utils";
 import { useEmperorUI, useUploaderContext } from "@/hooks";
 import { useState } from "react";
+import { getLocales, Locale } from "@/i18n";
 
 export function AvatarLabel() {
   const { config } = useEmperorUI();
   const [draggableMessage, setDraggableMessage] = useState<string | null>(null);
+
   const {
     labelId,
     classNames,
@@ -21,12 +23,22 @@ export function AvatarLabel() {
     files,
     isLoading,
     isMulti,
+    locales,
   } = useUploaderContext();
 
-  const locales = config?.interLocalization?.locales;
-  const lang = config?.interLocalization?.lang;
+  const configLocales = config?.interLocalization?.locales;
+  const lang =
+    config?.interLocalization?.lang ||
+    config?.interLocalization?.defaultLanguage ||
+    "en";
 
-  const locale = locales?.[lang || "en"];
+  const defaultLocale = getLocales(lang);
+  const uploaderLocale = mergeUploaderLocale({
+    defaultUploaderLocale: defaultLocale.atoms.uploader,
+    configUploaderLocale: (configLocales?.[lang] as Locale | undefined)?.atoms
+      ?.uploader,
+    contextUploaderLocale: locales,
+  });
 
   const handleDrop = (
     event: React.ChangeEvent<HTMLInputElement> &
@@ -41,7 +53,7 @@ export function AvatarLabel() {
       React.DragEvent<HTMLLabelElement>,
   ) => {
     event.preventDefault();
-    setDraggableMessage(locale?.atoms?.uploader?.dropHere || "");
+    setDraggableMessage(uploaderLocale.dropHere);
   };
 
   const handleDragLeave = () => {

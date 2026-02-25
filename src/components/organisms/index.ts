@@ -1,3 +1,4 @@
+export * from "./deletion-confirmor";
 export * from "./item-details";
 export * from "./listings";
 export * from "./footer";

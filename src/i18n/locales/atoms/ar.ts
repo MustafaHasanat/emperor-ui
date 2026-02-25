@@ -9,7 +9,7 @@ export const atomsAr = {
     selectBtn: "حدد ملف",
     errorUploadingFile: "لم يتم تحميل أي ملف",
     maxNumImages: "تم تجاوز الحد الأقصى للصور المرفوعة: ",
-    errorUploadedTypes: "يمكنك فقط تحميل الملفات من الأنواع التالية: ",
+    errorUploadedTypes: "نوع الملف المرفوع غير مسموح به",
     maxSizeExceededError:
       "يمكنك فقط رفع ملفات/صور بحجم أقل من MAX_FILE_SIZE ميغابايت، بينما حجم الملف الذي رفعته هو UPLOADED_FILE_SIZE ميغابايت",
     duplicatesDenied:

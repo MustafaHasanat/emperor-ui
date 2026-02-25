@@ -1,4 +1,8 @@
 export const organismsAr = {
+  deletionConfirmor: {
+    confirm: "تأكيد",
+    decline: "إلغاء",
+  },
   listings: {
     emptyTitle: "لا توجد عناصر",
     emptyDescription:
