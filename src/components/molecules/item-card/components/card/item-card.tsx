@@ -8,7 +8,11 @@ import type {
 import { cn } from "@/utils";
 import { Card } from "@heroui/card";
 import { motion } from "framer-motion";
-import { itemMainWrapperClasses, itemCardMotionClasses } from "./styles";
+import {
+  itemMainWrapperClasses,
+  itemCardMotionClasses,
+  ItemActionsOverlay,
+} from "@/components";
 import { getCardMotion } from "@/constants";
 import {
   LoadingItem,
@@ -17,7 +21,6 @@ import {
   ItemCardFooter,
 } from "@/components";
 import { useWindowSize } from "@/hooks";
-import { ItemActionsOverlay } from "./item-actions-overlay";
 
 export function ItemCard({
   variants,
@@ -47,8 +50,10 @@ export function ItemCard({
     );
 
   const hasActions = actions && actions.length > 0;
+
   const isDropdownVariant: boolean =
     (actionsViewVariant as ItemCardActionsViewVariant) === "dropdown";
+
   const isHoverOverlayVariant: boolean =
     (actionsViewVariant as ItemCardActionsViewVariant) === "hover-overlay";
 
@@ -103,20 +108,14 @@ export function ItemCard({
           onActionClick={onActionClick}
           actionsViewVariant={actionsViewVariant}
         />
+
         {isHoverOverlayVariant && hasActions && (
-          <div
-            data-slot="emperor-ui-item-card-actions-hover-overlay"
-            className={cn(
-              "pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-black/60 opacity-0",
-              "transition-opacity duration-200 group-hover:opacity-100",
-            )}
-          >
-            <ItemActionsOverlay
-              actions={actions}
-              classNames={classNames}
-              onActionClick={onActionClick}
-            />
-          </div>
+          <ItemActionsOverlay
+            actions={actions}
+            classNames={classNames}
+            onActionClick={onActionClick}
+            orientation={orientation}
+          />
         )}
       </Card>
     </motion.div>

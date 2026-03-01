@@ -12,7 +12,7 @@ import {
   itemBodyClasses,
   itemFooterClasses,
   itemChipsClasses,
-} from "./styles";
+} from "@/components";
 import { getCardMotion } from "@/constants";
 import type { ItemCardProps } from "@/types";
 

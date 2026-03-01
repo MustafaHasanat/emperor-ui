@@ -2,11 +2,13 @@
 
 import { CardHeader } from "@heroui/card";
 import { cn } from "@/utils";
-import { itemHeaderClasses } from "./styles";
-import { itemImageWrapperClasses } from "./styles";
+import {
+  itemHeaderClasses,
+  ItemActionsDropdown,
+  itemImageWrapperClasses,
+  ItemBanner,
+} from "@/components";
 import { Image } from "@heroui/image";
-import { ItemBanner } from "@/components";
-import { ItemActionsDropdown } from "./item-actions-dropdown";
 import type { ItemCardProps } from "@/types";
 
 export function ItemCardHeader({

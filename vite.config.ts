@@ -38,6 +38,7 @@ export default defineConfig({
           "react-dom": "ReactDOM",
         },
         assetFileNames: "globals.css",
+        banner: '"use client";',
       },
     },
   },

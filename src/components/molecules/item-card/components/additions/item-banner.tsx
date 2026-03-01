@@ -2,7 +2,7 @@
 
 import { ItemCardProps } from "@/types";
 import { cn } from "@/utils";
-import { itemBannerClasses } from "./styles";
+import { itemBannerClasses } from "@/components";
 
 export function ItemBanner({
   item,

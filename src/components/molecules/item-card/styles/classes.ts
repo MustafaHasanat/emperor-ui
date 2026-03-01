@@ -58,16 +58,19 @@ export const itemBodyClasses = cva(["relative flex flex-col gap-2 p-4"], {
   compoundVariants: [],
 });
 
-export const itemFooterClasses = cva(["flex items-center p-4"], {
-  variants: {
-    orientation: {
-      vertical: "",
-      horizontal: "justify-end",
+export const itemFooterClasses = cva(
+  ["flex flex-wrap flex-col p-4 gap-4 items-start"],
+  {
+    variants: {
+      orientation: {
+        vertical: "",
+        horizontal: "justify-end",
+      },
     },
+    defaultVariants: {},
+    compoundVariants: [],
   },
-  defaultVariants: {},
-  compoundVariants: [],
-});
+);
 
 export const itemTitleClasses = cva(
   ["line-clamp-1 font-semibold text-foreground"],

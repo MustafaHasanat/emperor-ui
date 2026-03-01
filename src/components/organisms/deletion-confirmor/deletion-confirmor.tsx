@@ -85,16 +85,12 @@ export function DeletionConfirmor({
             onPress={handleDecline}
             className={cn(declineProps?.className, classNames?.declineButton)}
           >
-            {declineProps?.children ??
-              deletionConfirmorLocale?.decline ??
-              "Decline"}
+            {declineProps?.children ?? deletionConfirmorLocale?.decline}
           </Button>
 
           <Button
             color="danger"
             size="sm"
-            {...confirmProps}
-            className={cn(confirmProps?.className, classNames?.confirmButton)}
             startContent={
               confirmProps?.isLoading
                 ? undefined
@@ -102,10 +98,10 @@ export function DeletionConfirmor({
                     <Trash2 className="size-4" aria-hidden />
                   ))
             }
+            {...confirmProps}
+            className={cn(confirmProps?.className, classNames?.confirmButton)}
           >
-            {confirmProps?.children ??
-              deletionConfirmorLocale?.confirm ??
-              "Confirm"}
+            {confirmProps?.children ?? deletionConfirmorLocale?.confirm}
           </Button>
         </ModalFooter>
       </ModalContent>

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { MockItemType } from "@/mocks";
 import { ItemCard } from "@/components";
 import { getStorybookDecorators } from "@/utils";
 import { getListing, MOCK_LISTINGS } from "@/mocks";
-import type { MockItemType } from "@/mocks";
 import { useEffect, useState } from "storybook/internal/preview-api";
 import { ItemCardProps } from "@/types";
 import { ITEM_CARD_ACTIONS } from "@/constants";
@@ -102,7 +102,7 @@ export const WithHorizontalLoading: Story = {
   },
 };
 
-export const WithActions: Story = {
+export const WithDropdownActions: Story = {
   args: {
     item: {
       key: String(MOCK_LISTINGS[0]?.id),

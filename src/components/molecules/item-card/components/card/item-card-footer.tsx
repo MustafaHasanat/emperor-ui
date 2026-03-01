@@ -2,10 +2,13 @@
 
 import type { ItemCardProps } from "@/types";
 import { cn } from "@/utils";
-import { itemFooterClasses, itemChipsClasses } from "./styles";
+import {
+  ItemActionsButtons,
+  itemFooterClasses,
+  itemChipsClasses,
+} from "@/components";
 import { CardFooter } from "@heroui/card";
 import { Chip } from "@heroui/chip";
-import { ItemActionsButtons } from "./item-actions-buttons";
 
 export function ItemCardFooter({
   item,
@@ -63,7 +66,7 @@ export function ItemCardFooter({
         </menu>
       )}
 
-      {actionsViewVariant === "buttons" && actions && actions.length > 0 && (
+      {actionsViewVariant === "buttons" && actions && actions?.length > 0 && (
         <ItemActionsButtons
           actions={actions}
           classNames={classNames}

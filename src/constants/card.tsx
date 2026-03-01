@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Eye, Pencil, Trash2 } from "lucide-react";
 import { ItemCardAction } from "@/types";
 
@@ -8,7 +9,7 @@ export const ITEM_CARD_ACTIONS: ItemCardAction[] = [
     color: "primary",
     variant: "flat",
     size: "sm",
-    startContent: <Eye className="size-5" />,
+    startContent: <Eye className="size-4" />,
   },
   {
     key: "edit",
@@ -16,7 +17,7 @@ export const ITEM_CARD_ACTIONS: ItemCardAction[] = [
     color: "secondary",
     variant: "flat",
     size: "sm",
-    startContent: <Pencil className="size-5" />,
+    startContent: <Pencil className="size-4" />,
   },
   {
     key: "delete",
@@ -27,3 +28,15 @@ export const ITEM_CARD_ACTIONS: ItemCardAction[] = [
     startContent: <Trash2 className="size-4" />,
   },
 ];
+
+export const ITEM_CARD_ACTIONS_OVERLAY: ItemCardAction[] =
+  ITEM_CARD_ACTIONS.map((action) => ({
+    ...action,
+    variant: "solid",
+    size: "lg",
+    startContent: {
+      view: <Eye className="size-5" />,
+      edit: <Pencil className="size-5" />,
+      delete: <Trash2 className="size-5" />,
+    }[action?.key],
+  }));

@@ -13,6 +13,9 @@ export const DeletionConfirmorWithTrigger = (args: DeletionConfirmorProps) => {
       </Button>
 
       <DeletionConfirmor
+        confirmProps={{
+          onPress: () => setIsOpen(false),
+        }}
         {...args}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
