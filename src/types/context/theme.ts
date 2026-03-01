@@ -6,7 +6,7 @@ import { ModalProps } from "@heroui/modal";
 import { CheckboxGroupProps, CheckboxProps } from "@heroui/checkbox";
 import { AutocompleteItemProps, AutocompleteProps } from "@heroui/autocomplete";
 import { SelectProps, SelectItemProps } from "@heroui/select";
-import { RadioProps } from "@heroui/radio";
+import { RadioGroupProps } from "@heroui/radio";
 import { SwitchProps } from "@heroui/switch";
 import { DatePickerProps } from "@heroui/date-picker";
 import { SliderProps } from "@heroui/slider";
@@ -23,7 +23,7 @@ export type EmperorUITheme = {
     checkboxGroup?: CheckboxGroupProps;
     autocomplete?: Omit<AutocompleteProps, "children">;
     autocompleteItem?: Omit<AutocompleteItemProps, "children">;
-    radio?: Omit<RadioProps, "children">;
+    radio?: Omit<RadioGroupProps, "children">;
     select?: Omit<SelectProps, "children">;
     selectItem?: Omit<SelectItemProps, "children">;
     switch?: SwitchProps;

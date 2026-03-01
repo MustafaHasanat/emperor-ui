@@ -1,7 +1,7 @@
 {
   "name": "@js-empire/emperor-ui",
   "description": "They provide the atoms, we provide the empire.",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "author": "JS Empire - Mustafa Alhasanat",
   "license": "ISC",
   "type": "module",

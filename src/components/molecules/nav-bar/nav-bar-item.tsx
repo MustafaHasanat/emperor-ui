@@ -3,7 +3,7 @@ import { VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
 import type { NavBarItemProps } from "@/types";
 import { navBarItemClasses, navBarItemStyles } from "./styles";
-import { useEmperorUI, useNavigation } from "@/hooks";
+import { useNavigation } from "@/hooks";
 
 export const NavBarItem = forwardRef<
   HTMLLIElement,
@@ -11,7 +11,6 @@ export const NavBarItem = forwardRef<
     VariantProps<typeof navBarItemClasses> &
     NavBarItemProps
 >(({ className, item, variant, hoverEffect, ...props }, ref) => {
-  const { config } = useEmperorUI();
   const {
     hoveredItemId,
     subItemsBoxIsHovered,
@@ -19,9 +18,6 @@ export const NavBarItem = forwardRef<
     setHoveredItemId,
     setIsSubItemsBoxOpen,
   } = useNavigation();
-
-  const primaryColor = config?.theme?.colors?.primary;
-  const foregroundColor = config?.theme?.colors?.foreground;
 
   const { id, label, Icon, subItems } = item;
 
@@ -52,8 +48,6 @@ export const NavBarItem = forwardRef<
       ref={ref}
       data-slot="emperor-nav-bar-item"
       style={navBarItemStyles({
-        foregroundColor,
-        primaryColor,
         hoverEffect,
         isHovered,
         variant,

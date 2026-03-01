@@ -2,7 +2,6 @@ import { cn } from "@/utils";
 import { VariantProps } from "class-variance-authority";
 import { forwardRef, ComponentProps } from "react";
 import type { NavBarProps } from "@/types";
-import { useEmperorUI } from "@/hooks";
 import {
   navBarClasses,
   navBarMenuClasses,
@@ -26,19 +25,12 @@ export const NavBar = forwardRef<
     },
     ref,
   ) => {
-    const { config } = useEmperorUI();
-
-    const primaryColor = config?.theme?.colors?.primary;
-    const foregroundColor = config?.theme?.colors?.foreground;
-
     return (
       <nav
         ref={ref}
         data-slot="emperor-nav-bar"
         className={cn(navBarClasses({ hoverEffect, variant, className }))}
         style={navBarStyles({
-          foregroundColor,
-          primaryColor,
           variant,
         })}
         {...props}
