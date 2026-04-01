@@ -81,6 +81,7 @@ export type UploaderContextState = {
 
   onInputChange: SharedOnInputChangeType;
   handleClearFile: (fileName?: string) => void;
+  setFiles?: Dispatch<SetStateAction<FileObject[]>>;
 
   modal?: Omit<ModalProps, "children"> & {
     onOpen?: () => void;

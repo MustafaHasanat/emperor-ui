@@ -3,6 +3,7 @@ import {
   ALLOWED_IMAGES_TYPES,
   ALLOWED_PDF_TYPES,
   ONE_MEGABYTE,
+  ALLOWED_SHEET_TYPES,
 } from "@/constants";
 import { FileObject, FileType } from "@/types";
 import { addToast } from "@heroui/toast";
@@ -15,6 +16,7 @@ export const mapFileType = (fileType: string): FileType | null => {
   if (ALLOWED_IMAGES_TYPES.includes(fileType)) return "image";
   if (ALLOWED_PDF_TYPES.includes(fileType)) return "pdf";
   if (ALLOWED_DOC_TYPES.includes(fileType)) return "doc";
+  if (ALLOWED_SHEET_TYPES.includes(fileType)) return "sheet";
 
   return null;
 };
@@ -27,6 +29,7 @@ export const getAllowedTypes = (fileTypes: FileType[]): string[] => {
     if (fileType === "image") allowedTypes.push(...ALLOWED_IMAGES_TYPES);
     if (fileType === "doc") allowedTypes.push(...ALLOWED_DOC_TYPES);
     if (fileType === "pdf") allowedTypes.push(...ALLOWED_PDF_TYPES);
+    if (fileType === "sheet") allowedTypes.push(...ALLOWED_SHEET_TYPES);
   });
 
   return allowedTypes;

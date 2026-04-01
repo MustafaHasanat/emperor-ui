@@ -16,6 +16,12 @@ export const ALLOWED_DOC_TYPES = [
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ];
 
+export const ALLOWED_SHEET_TYPES = [
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "application/vnd.ms-excel",
+  "text/csv",
+];
+
 export const ONE_MEGABYTE = 1024;
 
 export const fileTypesMapping: { [key: string]: string[] } = {
@@ -23,5 +29,5 @@ export const fileTypesMapping: { [key: string]: string[] } = {
   doc: [".doc", ".docx"],
   pdf: [".pdf"],
   video: [".mp4"],
-  sheet: [".xlsx", ".xlx"],
+  sheet: [".xlsx", ".xlx", ".xls", ".csv"],
 };

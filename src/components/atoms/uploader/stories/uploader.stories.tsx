@@ -30,8 +30,9 @@ export const Default: Story = {
   args: {},
   render: () => {
     const uploadProps = useUploader({
-      fileTypes: ["image", "pdf"],
+      fileTypes: ["sheet"],
       labelId: "image",
+      isMulti: true,
     });
 
     return <Uploader {...uploadProps} />;

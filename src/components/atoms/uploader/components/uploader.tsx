@@ -36,11 +36,42 @@ export const Uploader = forwardRef<
   HTMLDivElement,
   ComponentProps<"div"> & VariantProps<typeof uploaderStyles> & UploaderProps
 >(({ className, ...props }, ref) => {
-  const { isAvatar, hideListing, isFileViewable, hideErrorMessage } = props;
+  const {
+    isAvatar,
+    hideListing,
+    isFileViewable,
+    hideErrorMessage,
+    // Uploader API — must not be forwarded to a DOM element (React warns on unknown props).
+    selectedFile,
+    setSelectedFile,
+    labelId,
+    labelContent,
+    avatarLabelContent,
+    title,
+    errorMessage,
+    isRequired,
+    isDraggable,
+    isLoading,
+    isMulti,
+    placeholderImage,
+    files,
+    fileTypes,
+    onInputChange,
+    handleClearFile,
+    modal,
+    classNames,
+    locales,
+    setFiles,
+    ...divProps
+  } = props;
 
   return (
     <UploaderProvider {...props}>
-      <div ref={ref} className={cn(uploaderStyles({ className }))} {...props}>
+      <div
+        ref={ref}
+        className={cn(uploaderStyles({ className }))}
+        {...divProps}
+      >
         <UploaderTitle />
 
         {isAvatar ? <AvatarLabel /> : <UploadFileLabel />}
