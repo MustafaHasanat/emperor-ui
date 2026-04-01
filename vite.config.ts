@@ -33,6 +33,12 @@ export default defineConfig({
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
+        // Single ESM chunk so the published tarball does not ship hashed split chunks
+        // alongside the entry file (same bytes, fewer files; easier for consumers).
+        inlineDynamicImports: true,
+        // Next.js App Router: mark the package as client-only so the server bundle
+        // does not evaluate HeroUI / motion / aria code that touches `document`.
+        banner: '"use client";\n',
         globals: {
           react: "React",
           "react-dom": "ReactDOM",

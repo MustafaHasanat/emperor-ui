@@ -1,19 +1,23 @@
 {
   "name": "@js-empire/emperor-ui",
   "description": "They provide the atoms, we provide the empire.",
-  "version": "1.3.5",
+  "version": "1.3.7",
   "author": "JS Empire - Mustafa Alhasanat",
   "license": "ISC",
   "type": "module",
-  "main": "dist/emperor-ui-umd.cjs",
+  "main": "dist/emperor-ui.umd.cjs",
   "module": "dist/emperor-ui.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/emperor-ui.js",
-      "require": "./dist/emperor-ui-umd.cjs"
+      "require": "./dist/emperor-ui.umd.cjs"
     },
     "./globals.css": "./dist/globals.css"
   },
