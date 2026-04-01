@@ -5,7 +5,7 @@ import { filterClasses } from "@/components";
 import { Checkbox, CheckboxGroup } from "@heroui/checkbox";
 import { cn } from "@/utils";
 import { useEmperorUI, useSearchParamsHandler } from "@/hooks";
-import { useMemo } from "storybook/internal/preview-api";
+import { useMemo } from "react";
 
 export function CheckboxGroupFilter({
   classNames,

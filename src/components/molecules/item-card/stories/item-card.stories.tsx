@@ -3,7 +3,7 @@ import type { MockItemType } from "@/mocks";
 import { ItemCard } from "@/components";
 import { getStorybookDecorators } from "@/utils";
 import { getListing, MOCK_LISTINGS } from "@/mocks";
-import { useEffect, useState } from "storybook/internal/preview-api";
+import { useEffect, useState } from "react";
 import { ItemCardProps } from "@/types";
 import { ITEM_CARD_ACTIONS } from "@/constants";
 

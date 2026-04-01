@@ -14,7 +14,7 @@ export const Brand = forwardRef<
     {
       className,
       variant,
-      src = "/images/emperor-ui-logo.png",
+      src,
       alt = "Emperor UI",
       name = "Emperor UI",
       isIconOnly = false,
